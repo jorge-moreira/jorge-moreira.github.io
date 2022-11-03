@@ -1,0 +1,10 @@
+.interests-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.interests-row {
+    flex: 40%;
+    padding: 1vmin;
+}

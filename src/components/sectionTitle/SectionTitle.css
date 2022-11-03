@@ -1,0 +1,10 @@
+.section-title-image {
+    width: 10vmax;
+    display: block;
+    margin: auto;
+}
+
+.section-title {
+    text-transform: uppercase;
+    font-family: 'UTM Avo', sans-serif;
+}

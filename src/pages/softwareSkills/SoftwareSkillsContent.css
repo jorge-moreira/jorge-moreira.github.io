@@ -1,0 +1,10 @@
+.software-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.software-skills-row {
+    flex: 25%;
+    padding: 1vmin;
+}

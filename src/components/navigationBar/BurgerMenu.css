@@ -1,0 +1,62 @@
+.burger {
+    margin-left: 2vmin;
+    display: none;
+    -webkit-user-select: none;
+    user-select: none;
+    z-index: 1000;
+}
+
+.burger input {
+    display: block;
+    cursor: pointer;
+    z-index: 2;
+    width: 3vmin;
+    height: 3vmin;
+    position: absolute;
+    top: 1vmin;
+    left: 2vmin;
+    opacity: 0;
+    -webkit-touch-callout: none;
+}
+
+.burger span {
+    display: block;
+    width: 3.5vmin;
+    height: 0.3vmin;
+    margin-bottom: 1vmin;
+    margin-top: 1vmin;
+    position: relative;
+    background: #cdcdcd;
+    border-radius: 1vmin;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        opacity 0.55s ease;
+}
+
+.burger span:first-child {
+    transform-origin: 0% 0%;
+}
+
+.burger span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+.burger .expanded~span {
+    opacity: 1;
+    transform: translateY(-1.5vmin) rotate(45deg);
+    background: #232323;
+}
+
+.burger .expanded~span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+.burger .expanded~a {
+    transform: none;
+}
+
+.burger .expanded~span:nth-last-child(2) {
+    transform: translateY(1vmin) translateX(0.5vmin) rotate(-45deg);
+}

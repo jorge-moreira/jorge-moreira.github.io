@@ -1,0 +1,18 @@
+.work-experience-row {
+    display: flex;
+    flex-flow: column;
+    align-items: inherit;
+}
+
+.work-experience-row>div {
+    padding-bottom: 2vmin;
+}
+
+.work-experience-company {
+    font-weight: bold;
+}
+
+.work-experience-period {
+    display: flex;
+    flex-direction: row;
+}

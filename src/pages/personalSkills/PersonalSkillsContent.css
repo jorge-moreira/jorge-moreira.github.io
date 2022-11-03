@@ -1,0 +1,10 @@
+.personal-skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.personal-skills-row {
+    flex: 25%;
+    padding: 1vmin;
+}

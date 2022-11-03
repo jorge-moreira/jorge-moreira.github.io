@@ -1,0 +1,92 @@
+.timeline-item {
+    display: flex;
+    justify-content: flex-start;
+    position: relative;
+    margin-top: 1vmin;
+    margin-bottom: 1vmin;
+    width: 50%;
+}
+
+.timeline-item:nth-child(even) {
+    align-self: flex-end;
+    justify-content: flex-end;
+}
+
+.timeline-item .circle {
+    background-color: white;
+    border: 0.4vmin solid black;
+    border-radius: 50%;
+    width: 5vmin;
+    height: 5vmin;
+    top: calc(50% - 2.8vmin);
+    right: -2.9vmin;
+    z-index: 100;
+    position: absolute;
+}
+
+.timeline-item:nth-child(even) .circle {
+    left: -2.9vmin;
+    right: auto;
+}
+
+.timeline-item-content {
+    background-color: white;
+    width: 70%;
+    border-radius: 1vmin;
+    box-shadow: 0 0 1vmin 0.5vmin rgba(0, 0, 0, 20%);
+    padding: 3vmin;
+    margin-left: 2.5vmin;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    position: relative;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.timeline-item-content:hover {
+    box-shadow: 0 0 1vmin 0.5vmin rgba(0, 0, 0, 30%);
+}
+
+.circle {
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.timeline-item-content:hover~.circle {
+    box-shadow: 0 0 1vmin 0.5vmin rgba(0, 0, 0, 30%);
+}
+
+.timeline-item-content::after {
+    background-color: white;
+    box-shadow: 0.6vmin -0.6vmin 0.6vmin rgba(0, 0, 0, 10%);
+    content: ' ';
+    position: absolute;
+    transform: rotate(45deg);
+    top: calc(50% - 1.5vmin);
+    right: -1.5vmin;
+    width: 3vmin;
+    height: 3vmin;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.timeline-item-content:hover::after {
+    box-shadow: 0.6vmin -0.6vmin 0.6vmin rgba(0, 0, 0, 20%);
+}
+
+.timeline-item:nth-child(even) .timeline-item-content {
+    text-align: left;
+    align-items: flex-start;
+    margin-right: 2.5vmin;
+    margin-left: 0vmin;
+}
+
+.timeline-item:nth-child(even) .timeline-item-content::after {
+    right: auto;
+    left: -1.5vmin;
+    box-shadow: -0.6vmin 0.6vmin 0.6vmin rgba(0, 0, 0, 10%);
+}
+
+.timeline-item:nth-child(even) .timeline-item-content:hover::after {
+    box-shadow: -0.6vmin 0.6vmin 0.6vmin rgba(0, 0, 0, 20%);
+}

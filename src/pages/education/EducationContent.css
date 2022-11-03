@@ -1,0 +1,18 @@
+.education-row {
+    display: flex;
+    flex-flow: column;
+    align-items: inherit;
+}
+
+.education-row>div {
+    padding-bottom: 2vmin;
+}
+
+.education-institution {
+    font-weight: bold;
+}
+
+.education-period {
+    display: flex;
+    flex-direction: row;
+}

@@ -1,0 +1,21 @@
+.timeline-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-top: 2vmin;
+    margin-bottom: 2vmin;
+}
+
+.timeline-container::before {
+    border-radius: 0.5vmin;
+}
+
+.timeline-container::after {
+    background-color: var(--line-color);
+    content: '';
+    position: absolute;
+    left: calc(50% - 0.2vmin);
+    width: 0.4vmin;
+    height: 100%;
+    border-radius: 0.5vmin;
+}
