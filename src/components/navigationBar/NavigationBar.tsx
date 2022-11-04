@@ -11,11 +11,15 @@ interface NavigationBarProps {
 function NavigationBar({ title, link, children }: NavigationBarProps) {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
 
-    const handleOnClick = () => setIsNavExpanded(!isNavExpanded);
+    const handleOnClick = () => {
+        if (window.innerWidth < 1280) {
+            setIsNavExpanded(!isNavExpanded);
+        }
+    };
 
     const childrenWithOnClickAction = children != undefined &&
         Children.map(children, child => {
-            return cloneElement(child, { onClick: handleOnClick })
+            return cloneElement(child, { onClick: handleOnClick });
         });
 
     return (
