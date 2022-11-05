@@ -1,6 +1,6 @@
 .nav-bar {
     width: 100%;
-    height: 5vmin;
+    height: 6vmin;
     display: flex;
     align-items: center;
     background-color: #315b75;
@@ -10,8 +10,12 @@
     box-shadow: 0vmin 0.25vmin 0.25vmin rgba(0, 0, 0, 30%);
 }
 
+.burger {
+    display: none;
+}
+
 .nav-bar-title {
-    padding-left: 2vmin;
+    padding-left: 3vmin;
 }
 
 .nav-bar-title>a {
@@ -30,9 +34,19 @@
     -webkit-tap-highlight-color: transparent;
     display: none;
     opacity: 1;
+    animation: fadeIn 1s;
 }
 
-@media screen and (max-width: 1280px) {
+@media only screen and (max-width:600px) and (max-width:992px) {
+    .nav-bar {
+        height: 6vmax;
+        font-size: calc(10px + 2vmax);
+    }
+
+    .nav-bar-title {
+        padding-left: 3vmax;
+    }
+
     .burger {
         display: block;
     }
@@ -44,5 +58,15 @@
 
     .nav-bar-expanded-background {
         display: block;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
     }
 }

@@ -12,7 +12,7 @@ function NavigationBar({ title, link, children }: NavigationBarProps) {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
 
     const handleOnClick = () => {
-        if (window.innerWidth < 1280) {
+        if (window.innerWidth < 992) {
             setIsNavExpanded(!isNavExpanded);
         }
     };

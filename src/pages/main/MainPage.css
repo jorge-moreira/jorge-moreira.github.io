@@ -1,4 +1,11 @@
 .sections>div {
-    padding-top: 6vmin;
+    padding-top: 7vmin;
     padding-bottom: 4vmin;
+}
+
+@media only screen and (max-width: 600px) and (max-width: 992px) {
+    .sections>div {
+        padding-top: 7vmax;
+        padding-bottom: 4vmax;
+    }
 }

@@ -1,6 +1,5 @@
 .burger {
-    margin-left: 2vmin;
-    display: none;
+    margin-left: 3vmax;
     -webkit-user-select: none;
     user-select: none;
     z-index: 1000;
@@ -10,28 +9,28 @@
     display: block;
     cursor: pointer;
     z-index: 2;
-    width: 3vmin;
-    height: 3vmin;
+    width: 3vmax;
+    height: 3vmax;
     position: absolute;
-    top: 1vmin;
-    left: 2vmin;
+    top: 1vmax;
+    left: 3vmax;
     opacity: 0;
     -webkit-touch-callout: none;
 }
 
 .burger span {
     display: block;
-    width: 3.5vmin;
-    height: 0.3vmin;
-    margin-bottom: 1vmin;
-    margin-top: 1vmin;
+    width: 3.5vmax;
+    height: 0.3vmax;
+    margin-bottom: 1vmax;
+    margin-top: 1vmax;
     position: relative;
     background: #cdcdcd;
-    border-radius: 1vmin;
+    border-radius: 1vmax;
     z-index: 1;
-    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-        background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
-        opacity 0.55s ease;
+    transition: transform 0.75s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        background 0.75s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+        opacity 0.8s ease;
 }
 
 .burger span:first-child {
@@ -44,7 +43,7 @@
 
 .burger .expanded~span {
     opacity: 1;
-    transform: translateY(-1.5vmin) rotate(45deg);
+    transform: translateY(-1.5vmax) rotate(45deg);
     background: #232323;
 }
 
@@ -58,5 +57,5 @@
 }
 
 .burger .expanded~span:nth-last-child(2) {
-    transform: translateY(1vmin) translateX(0.5vmin) rotate(-45deg);
+    transform: translateY(1vmax) translateX(0.5vmax) rotate(-45deg);
 }
