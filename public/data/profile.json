@@ -1,35 +1,40 @@
 {
   "name": "Jorge Moreira",
-  "title": "Software Engineer",
+  "title": "Software Engineer @ Planet",
   "bio": [
-    "Brief bio paragraph 1 - introduce yourself",
-    "Brief bio paragraph 2 - what you do",
-    "Brief bio paragraph 3 - your approach/philosophy"
+    "I'm a Software Engineer with experience building scalable systems and leading technical initiatives.",
+    "Currently working at Planet, I focus on delivering high-quality software solutions.",
+    "Passionate about clean code, best practices, and continuous learning."
   ],
   "photo": "/profile-photo.jpg",
-  "location": "Location, Country",
-  "currentRole": "Current Job Title",
-  "focusAreas": ["Area 1", "Area 2", "Area 3", "Area 4"],
+  "location": "Porto, Portugal",
+  "currentRole": "Software Engineer @ Planet",
+  "focusAreas": [
+    "Software Engineering",
+    "System Design",
+    "Cloud Architecture",
+    "Team Collaboration"
+  ],
   "social": [
     {
+      "platform": "Email",
+      "url": "mailto:jorge.moreira.96@gmail.com",
+      "icon": "mail"
+    },
+    {
       "platform": "LinkedIn",
-      "url": "https://linkedin.com/in/your-profile",
+      "url": "https://www.linkedin.com/in/jorge-moreira/",
       "icon": "linkedin"
     },
     {
       "platform": "GitHub",
-      "url": "https://github.com/jorge-moreira",
+      "url": "https://github.com/Jorge-Moreira",
       "icon": "github"
-    },
-    {
-      "platform": "Email",
-      "url": "mailto:your-email@example.com",
-      "icon": "mail"
     }
   ],
   "carePriorities": [
-    "Priority 1",
-    "Priority 2",
-    "Priority 3"
+    "Building reliable and maintainable systems",
+    "Continuous learning and improvement",
+    "Collaboration and knowledge sharing"
   ]
 }

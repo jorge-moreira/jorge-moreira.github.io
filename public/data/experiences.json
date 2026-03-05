@@ -1,27 +1,79 @@
 [
   {
     "id": "1",
-    "company": "Company Name",
-    "role": "Job Title",
-    "startDate": "2024",
+    "company": "Planet",
+    "role": "Senior Software Engineer",
+    "startDate": "2023",
+    "endDate": null,
     "description": [
-      "Achievement or responsibility 1",
-      "Achievement or responsibility 2",
-      "Achievement or responsibility 3"
+      "Worked as Senior Software Engineer at Planet",
+      "Key responsibilities and achievements to be detailed",
+      "Technologies and methodologies used"
     ],
-    "tags": ["Engineering", "Leadership"]
+    "tags": [
+      "Engineering",
+      "Leadership"
+    ]
   },
   {
     "id": "2",
-    "company": "Previous Company",
-    "role": "Previous Role",
-    "startDate": "2020",
-    "endDate": "2024",
+    "company": "Farfetch",
+    "role": "Software Engineer",
+    "startDate": "2019",
+    "endDate": "2023",
     "description": [
-      "What you did here",
-      "Key accomplishments",
-      "Technologies used"
+      "Worked as Software Engineer at Farfetch",
+      "Key responsibilities and achievements to be detailed",
+      "Technologies and methodologies used"
     ],
-    "tags": ["Engineering"]
+    "tags": [
+      "Engineering",
+      "Leadership"
+    ]
+  },
+  {
+    "id": "3",
+    "company": "Farfetch",
+    "role": "Junior Software Engineer",
+    "startDate": "2018",
+    "endDate": "2019",
+    "description": [
+      "Worked as Junior Software Engineer at Farfetch",
+      "Key responsibilities and achievements to be detailed",
+      "Technologies and methodologies used"
+    ],
+    "tags": [
+      "Engineering"
+    ]
+  },
+  {
+    "id": "4",
+    "company": "Farfetch",
+    "role": "Trainee - Plug-in Programme",
+    "startDate": "2017",
+    "endDate": "2018",
+    "description": [
+      "Worked as Trainee - Plug-in Programme at Farfetch",
+      "Key responsibilities and achievements to be detailed",
+      "Technologies and methodologies used"
+    ],
+    "tags": [
+      "Engineering"
+    ]
+  },
+  {
+    "id": "5",
+    "company": "myPartner",
+    "role": "Internship",
+    "startDate": "2017",
+    "endDate": "2017",
+    "description": [
+      "Worked as Internship at myPartner",
+      "Key responsibilities and achievements to be detailed",
+      "Technologies and methodologies used"
+    ],
+    "tags": [
+      "Engineering"
+    ]
   }
 ]

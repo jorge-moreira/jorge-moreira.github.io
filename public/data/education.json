@@ -1,10 +1,17 @@
 [
   {
     "id": "1",
-    "institution": "University Name",
-    "degree": "Bachelor's in Computer Science",
-    "description": "Focus areas or specialization",
-    "startYear": "2015",
-    "endYear": "2019"
+    "institution": "Instituto Superior de Engenharia do Porto",
+    "degree": "Bachelor degree",
+    "description": "Informatics Engineering",
+    "startYear": "2014",
+    "endYear": "2017"
+  },
+  {
+    "id": "2",
+    "institution": "Instituto Superior de Administração e Gestão",
+    "degree": "Mini MBA",
+    "description": "Business Management",
+    "startYear": "2021"
   }
 ]

@@ -1,10 +1,15 @@
 [
   {
     "id": "1",
-    "title": "Project Name",
-    "purpose": "Brief description of what this project does and why it exists",
-    "techStack": ["React", "TypeScript", "Tailwind CSS"],
-    "company": "Company Name (if applicable)",
-    "link": "https://github.com/your-repo"
+    "title": "Personal Portfolio",
+    "purpose": "Modern portfolio website showcasing my work and experience",
+    "techStack": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite"
+    ],
+    "company": null,
+    "link": "https://jorge-moreira.github.io"
   }
 ]

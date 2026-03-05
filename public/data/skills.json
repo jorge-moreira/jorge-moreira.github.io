@@ -1,10 +1,38 @@
 [
-  { "name": "JavaScript", "category": "Languages" },
-  { "name": "TypeScript", "category": "Languages" },
-  { "name": "Python", "category": "Languages" },
-  { "name": "React", "category": "Frameworks" },
-  { "name": "Node.js", "category": "Frameworks" },
-  { "name": "AWS", "category": "Cloud & Platform" },
-  { "name": "Docker", "category": "Cloud & Platform" },
-  { "name": "Git", "category": "Tools" }
+  {
+    "name": "C#",
+    "category": "Languages"
+  },
+  {
+    "name": "Docker",
+    "category": "Tools"
+  },
+  {
+    "name": "OpenAPI",
+    "category": "Tools"
+  },
+  {
+    "name": "SQL",
+    "category": "Languages"
+  },
+  {
+    "name": "Java",
+    "category": "Languages"
+  },
+  {
+    "name": "Jenkins",
+    "category": "Tools"
+  },
+  {
+    "name": "Git",
+    "category": "Tools"
+  },
+  {
+    "name": "TDD",
+    "category": "Methodologies"
+  },
+  {
+    "name": "DDD",
+    "category": "Methodologies"
+  }
 ]
