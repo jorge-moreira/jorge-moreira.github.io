@@ -1,0 +1,35 @@
+{
+  "name": "Jorge Moreira",
+  "title": "Software Engineer",
+  "bio": [
+    "Brief bio paragraph 1 - introduce yourself",
+    "Brief bio paragraph 2 - what you do",
+    "Brief bio paragraph 3 - your approach/philosophy"
+  ],
+  "photo": "/profile-photo.jpg",
+  "location": "Location, Country",
+  "currentRole": "Current Job Title",
+  "focusAreas": ["Area 1", "Area 2", "Area 3", "Area 4"],
+  "social": [
+    {
+      "platform": "LinkedIn",
+      "url": "https://linkedin.com/in/your-profile",
+      "icon": "linkedin"
+    },
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/jorge-moreira",
+      "icon": "github"
+    },
+    {
+      "platform": "Email",
+      "url": "mailto:your-email@example.com",
+      "icon": "mail"
+    }
+  ],
+  "carePriorities": [
+    "Priority 1",
+    "Priority 2",
+    "Priority 3"
+  ]
+}

@@ -1,0 +1,10 @@
+[
+  { "name": "JavaScript", "category": "Languages" },
+  { "name": "TypeScript", "category": "Languages" },
+  { "name": "Python", "category": "Languages" },
+  { "name": "React", "category": "Frameworks" },
+  { "name": "Node.js", "category": "Frameworks" },
+  { "name": "AWS", "category": "Cloud & Platform" },
+  { "name": "Docker", "category": "Cloud & Platform" },
+  { "name": "Git", "category": "Tools" }
+]

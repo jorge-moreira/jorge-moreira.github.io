@@ -1,0 +1,27 @@
+[
+  {
+    "id": "1",
+    "company": "Company Name",
+    "role": "Job Title",
+    "startDate": "2024",
+    "description": [
+      "Achievement or responsibility 1",
+      "Achievement or responsibility 2",
+      "Achievement or responsibility 3"
+    ],
+    "tags": ["Engineering", "Leadership"]
+  },
+  {
+    "id": "2",
+    "company": "Previous Company",
+    "role": "Previous Role",
+    "startDate": "2020",
+    "endDate": "2024",
+    "description": [
+      "What you did here",
+      "Key accomplishments",
+      "Technologies used"
+    ],
+    "tags": ["Engineering"]
+  }
+]
