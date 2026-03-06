@@ -1,73 +1,125 @@
-# React + TypeScript + Vite
+# jorge-moreira.github.io
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website built with modern web technologies.
 
-Currently, two official plugins are available:
+## 🚀 Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Framework:** Vite + React 18 + TypeScript
+- **Package Manager:** Bun
+- **UI Library:** shadcn/ui components
+- **Styling:** Tailwind CSS v4
+- **Routing:** React Router v7
+- **PDF Generation:** @react-pdf/renderer
+- **Testing:** Vitest + React Testing Library
+- **CI/CD:** GitHub Actions
+- **Deployment:** GitHub Pages
 
-## React Compiler
+## 📦 Prerequisites
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [Bun](https://bun.sh) v1.3+ installed
 
-## Expanding the ESLint configuration
+## 🛠️ Development
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```bash
+# Install dependencies
+bun install
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+# Start development server
+bun run dev
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+# Build for production
+bun run build
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Preview production build
+bun run preview
+
+# Run tests
+bun run test
+
+# Run tests in watch mode
+bun run test:watch
+
+# Run tests with UI
+bun run test:ui
+
+# Run linter
+bun run lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🏗️ Project Structure
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+├── src/
+│   ├── components/      # React components
+│   │   └── ui/         # shadcn/ui components
+│   ├── pages/          # Page components (Home, CV, Projects, Contact)
+│   ├── models/         # TypeScript interfaces
+│   ├── repositories/   # Data access layer
+│   ├── hooks/          # Custom React hooks (theme)
+│   └── lib/            # Utilities (PDF generation, etc.)
+├── public/
+│   └── data/           # JSON data files (profile, experiences, skills, etc.)
+├── .github/
+│   └── workflows/      # CI/CD pipelines
+└── old/                # Previous implementation (preserved)
+```
+
+## 🎨 Features
+
+- ✅ Single Page Application (SPA) with React Router
+- ✅ Dark/Light mode with system preference detection
+- ✅ Fully responsive design (mobile, tablet, desktop)
+- ✅ PDF CV export
+- ✅ Repository pattern for data management
+- ✅ Comprehensive test suite (76 tests)
+- ✅ Automated CI/CD with GitHub Actions
+- ✅ SEO optimized with meta tags
+
+## 📄 Pages
+
+- **Home** - Introduction with bio, social links, and profile info
+- **CV** - Professional experience timeline, skills, and education
+- **Projects** - Portfolio of projects with tech stacks
+- **Contact** - Social links and contact information
+
+## 🧪 Testing
+
+The project includes a comprehensive test suite with 76 tests covering:
+- Data repositories (JSONDataSource)
+- PDF generation utilities
+- Page components (Home, CV)
+- Navigation component
+- Theme functionality
+
+All tests run with Vitest and React Testing Library.
+
+## 🚢 Deployment
+
+The site automatically deploys to GitHub Pages when changes are pushed to the `main` branch via GitHub Actions.
+
+- **CI Pipeline:** Runs on PRs and branch pushes (lint, test, build)
+- **Deploy Pipeline:** Runs on main branch (build + deploy to GitHub Pages)
+
+## 📝 Data Management
+
+Content is managed through JSON files in `public/data/`:
+- `profile.json` - Personal information and bio
+- `experiences.json` - Work history
+- `skills.json` - Technical skills grouped by category
+- `education.json` - Educational background
+- `projects.json` - Project portfolio
+
+Edit these files to update site content.
+
+## ⚠️ Important Notes
+
+**Always use Bun** - This project uses Bun exclusively:
+- Use `bun add` instead of `npm install`
+- Use `bunx` instead of `npx`
+- Use `bun run` instead of `npm run`
+- CI/CD pipelines use Bun (`oven-sh/setup-bun@v2`)
+
+## 📜 License
+
+Personal portfolio - all rights reserved.
+
