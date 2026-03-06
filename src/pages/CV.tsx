@@ -8,6 +8,25 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
 import { generateCVPdf } from '@/lib/generatePdf';
+import { Timeline, TimelineItem } from '@/components/Timeline';
+
+// Color palette for company dots
+const companyColors = [
+  'bg-blue-500 shadow-blue-500/50',
+  'bg-purple-500 shadow-purple-500/50',
+  'bg-green-500 shadow-green-500/50',
+  'bg-orange-500 shadow-orange-500/50',
+  'bg-pink-500 shadow-pink-500/50',
+  'bg-cyan-500 shadow-cyan-500/50',
+  'bg-red-500 shadow-red-500/50',
+  'bg-yellow-500 shadow-yellow-500/50',
+  'bg-indigo-500 shadow-indigo-500/50',
+];
+
+const getCompanyColor = (company: string): string => {
+  const hash = company.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return companyColors[hash % companyColors.length];
+};
 
 export default function CV() {
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -133,65 +152,55 @@ export default function CV() {
 
       {/* Main Content - Two Column Layout on Desktop */}
       <div className="grid lg:grid-cols-[2fr_1fr] gap-12 lg:gap-16">
-        {/* Left Column: Professional Experience */}
+        {/* Left Column: Work Experience */}
         <section>
           <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12">
-            Professional Experience
+            Work Experience
           </h2>
           
-          <div className="space-y-12">
+          <Timeline>
             {experiences.map((exp, index) => {
               const startYear = exp.startDate.split('-')[0] || exp.startDate;
+              const dotColor = getCompanyColor(exp.company);
+              const isLast = index === experiences.length - 1;
               
               return (
-                <div key={exp.id} className="relative">
-                  {/* Timeline connector line */}
-                  {index !== experiences.length - 1 && (
-                    <div className="absolute left-0 top-8 bottom-[-48px] w-[1px] bg-border/40" />
-                  )}
-                  
-                  <div className="flex gap-6">
-                    {/* Year */}
-                    <div className="relative flex-shrink-0 w-16 text-right">
-                      <span className="text-lg font-bold text-foreground">{startYear}</span>
-                      {/* Timeline dot */}
-                      <div className="absolute -left-[21px] top-1 w-2 h-2 rounded-full bg-primary" />
+                <TimelineItem key={exp.id} dotColor={dotColor} isLast={isLast}>
+                  <div className="space-y-3">
+                    {/* Role with inline year badge */}
+                    <div className="flex items-center gap-3">
+                      <h3 className="text-2xl font-bold">{exp.role}</h3>
+                      <span className="text-xs text-gray-400 font-normal mt-1">{startYear}</span>
                     </div>
                     
-                    {/* Content */}
-                    <div className="flex-1 space-y-3">
-                      {/* Role (as h3 heading) */}
-                      <h3 className="text-xl font-bold">{exp.role}</h3>
-                      
-                      {/* Company */}
-                      <p className="text-base text-muted-foreground -mt-1">{exp.company}</p>
-                      
-                      {/* Description bullets */}
-                      <ul className="space-y-2 text-sm text-muted-foreground">
-                        {exp.description.map((item, idx) => (
-                          <li key={idx} className="flex gap-2 leading-relaxed">
-                            <span className="text-muted-foreground/60 select-none">·</span>
-                            <span className="flex-1">{item}</span>
-                          </li>
+                    {/* Company with primary color */}
+                    <p className="text-lg font-medium text-primary">{exp.company}</p>
+                    
+                    {/* Description bullets */}
+                    <ul className="space-y-2 text-sm text-muted-foreground">
+                      {exp.description.map((item, idx) => (
+                        <li key={idx} className="flex gap-2 leading-relaxed">
+                          <span className="text-muted-foreground/60 select-none">·</span>
+                          <span className="flex-1">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    
+                    {/* Tags */}
+                    {exp.tags && exp.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-2 pt-2">
+                        {exp.tags.map((tag, idx) => (
+                          <Badge key={idx} variant="outline" className="text-xs font-normal">
+                            {tag}
+                          </Badge>
                         ))}
-                      </ul>
-                      
-                      {/* Tags */}
-                      {exp.tags && exp.tags.length > 0 && (
-                        <div className="flex flex-wrap gap-2 pt-1">
-                          {exp.tags.map((tag, idx) => (
-                            <Badge key={idx} variant="outline" className="text-xs font-normal">
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
-                      )}
-                    </div>
+                      </div>
+                    )}
                   </div>
-                </div>
+                </TimelineItem>
               );
             })}
-          </div>
+          </Timeline>
         </section>
 
         {/* Right Column: Skills & Education */}
@@ -231,24 +240,27 @@ export default function CV() {
                 return (
                   <Card key={edu.id}>
                     <CardContent className="p-6">
-                      <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
-                        <div>
-                          <h3 className="text-xl md:text-2xl font-bold">
-                            {edu.institution}
-                          </h3>
-                          <p className="text-base md:text-lg text-muted-foreground mt-1">
-                            {edu.degree}
-                          </p>
-                        </div>
-                        <div className="text-sm md:text-base font-medium text-muted-foreground md:text-right">
-                          {yearDisplay}
-                        </div>
-                      </div>
+                      {/* Description - First and most highlighted */}
                       {edu.description && (
-                        <p className="text-sm md:text-base text-muted-foreground mt-2">
+                        <h3 className="text-xl md:text-2xl font-bold mb-3">
                           {edu.description}
-                        </p>
+                        </h3>
                       )}
+                      
+                      {/* Degree */}
+                      <p className="text-base md:text-lg font-semibold mb-2">
+                        {edu.degree}
+                      </p>
+                      
+                      {/* Institution */}
+                      <p className="text-sm md:text-base text-muted-foreground mb-1">
+                        {edu.institution}
+                      </p>
+                      
+                      {/* Years - smaller and lighter */}
+                      <p className="text-xs md:text-sm text-gray-400">
+                        {yearDisplay}
+                      </p>
                     </CardContent>
                   </Card>
                 );

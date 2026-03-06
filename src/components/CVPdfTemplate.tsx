@@ -114,27 +114,24 @@ const styles = StyleSheet.create({
   educationItem: {
     marginBottom: 10,
   },
-  educationHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginBottom: 2,
-  },
-  institution: {
-    fontSize: 11,
+  educationDescription: {
+    fontSize: 12,
     fontWeight: 'bold',
+    marginBottom: 3,
   },
   degree: {
     fontSize: 10,
+    fontWeight: 'bold',
+    marginBottom: 2,
+  },
+  institution: {
+    fontSize: 9,
     color: '#666666',
     marginBottom: 2,
   },
-  educationDescription: {
-    fontSize: 9,
-    color: '#666666',
-  },
   year: {
-    fontSize: 9,
-    color: '#666666',
+    fontSize: 8,
+    color: '#999999',
   },
 });
 
@@ -221,16 +218,19 @@ export function CVPdfTemplate({ profile, experiences, skills, education }: CVPdf
             
             return (
               <View key={edu.id} style={styles.educationItem}>
-                <View style={styles.educationHeader}>
-                  <View style={{ flex: 1 }}>
-                    <Text style={styles.institution}>{edu.institution}</Text>
-                    <Text style={styles.degree}>{edu.degree}</Text>
-                  </View>
-                  <Text style={styles.year}>{yearDisplay}</Text>
-                </View>
+                {/* Description - Most prominent */}
                 {edu.description && (
                   <Text style={styles.educationDescription}>{edu.description}</Text>
                 )}
+                
+                {/* Degree */}
+                <Text style={styles.degree}>{edu.degree}</Text>
+                
+                {/* Institution */}
+                <Text style={styles.institution}>{edu.institution}</Text>
+                
+                {/* Years - Smallest and lightest */}
+                <Text style={styles.year}>{yearDisplay}</Text>
               </View>
             );
           })}

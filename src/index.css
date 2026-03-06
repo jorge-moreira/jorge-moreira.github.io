@@ -87,3 +87,11 @@ body {
 .dark .footer-icon:hover {
   color: rgb(255 255 255); /* white for dark mode */
 }
+
+.nav-link.text-muted-foreground:hover {
+  color: rgb(0 0 0) !important; /* pure black for light mode */
+}
+
+.dark .nav-link.text-muted-foreground:hover {
+  color: rgb(255 255 255) !important; /* pure white for dark mode */
+}

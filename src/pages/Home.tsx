@@ -57,7 +57,7 @@ export default function Home() {
       <div className="flex-1 flex items-center justify-center px-6 py-12 lg:py-20">
         <div className="max-w-2xl w-full space-y-8">
           {/* Profile Photo - Mobile Only */}
-          <div className="lg:hidden w-24 h-24 rounded-full overflow-hidden border-2 border-border mx-auto">
+          <div className="lg:hidden w-24 h-24 rounded-full overflow-hidden mx-auto">
             <img 
               src={profile.photo} 
               alt={profile.name}
@@ -113,7 +113,7 @@ export default function Home() {
 
           {/* What I Care About */}
           {profile.carePriorities && profile.carePriorities.length > 0 && (
-            <div className="space-y-3 pt-8 border-t">
+            <div className="space-y-3 pt-8">
               <h3 className="text-xl font-semibold">What I Care About</h3>
               <ul className="space-y-2">
                 {profile.carePriorities.map((priority, index) => (
@@ -132,10 +132,10 @@ export default function Home() {
       </div>
 
       {/* Profile Sidebar - Desktop Only */}
-      <div className="hidden lg:block lg:w-[400px] xl:w-[450px] bg-muted/30 px-6 py-12 lg:py-20 border-l">
+      <div className="hidden lg:block lg:w-[400px] xl:w-[450px] bg-muted/30 px-6 py-12 lg:py-20">
         <div className="max-w-sm mx-auto space-y-6">
           {/* Profile Photo */}
-          <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-2 border-border">
+          <div className="w-48 h-48 mx-auto rounded-full overflow-hidden">
             <img 
               src={profile.photo} 
               alt={profile.name}
