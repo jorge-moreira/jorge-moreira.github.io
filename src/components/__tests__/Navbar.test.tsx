@@ -41,7 +41,6 @@ describe('Navbar', () => {
 
     it('should render all navigation links', () => {
       renderNavbar();
-      expect(screen.getAllByText('Home').length).toBeGreaterThan(0);
       expect(screen.getAllByText('CV').length).toBeGreaterThan(0);
       expect(screen.getAllByText('Projects').length).toBeGreaterThan(0);
       expect(screen.getAllByText('Contact').length).toBeGreaterThan(0);
@@ -71,8 +70,8 @@ describe('Navbar', () => {
 
     it('should navigate when clicking a link', () => {
       renderNavbar();
-      const homeLinks = screen.getAllByText('Home');
-      expect(homeLinks[0].closest('a')).toHaveAttribute('href', '/');
+      const cvLinks = screen.getAllByText('CV');
+      expect(cvLinks[0].closest('a')).toHaveAttribute('href', '/cv');
     });
   });
 
@@ -103,7 +102,7 @@ describe('Navbar', () => {
   describe('Mobile Menu', () => {
     it('should not show mobile menu by default', () => {
       renderNavbar();
-      const mobileMenus = screen.queryAllByText('Home').filter(
+      const mobileMenus = screen.queryAllByText('CV').filter(
         el => el.closest('.md\\:hidden')
       );
       expect(mobileMenus.length).toBe(0);
@@ -115,7 +114,7 @@ describe('Navbar', () => {
       
       fireEvent.click(menuButton);
       
-      const mobileNavLinks = screen.getAllByText('Home');
+      const mobileNavLinks = screen.getAllByText('CV');
       expect(mobileNavLinks.length).toBeGreaterThan(1);
     });
 
@@ -125,13 +124,13 @@ describe('Navbar', () => {
       
       fireEvent.click(menuButton);
       
-      const allHomeLinks = screen.getAllByText('Home');
-      const mobileHomeLink = allHomeLinks[allHomeLinks.length - 1];
+      const allCVLinks = screen.getAllByText('CV');
+      const mobileCVLink = allCVLinks[allCVLinks.length - 1];
       
-      fireEvent.click(mobileHomeLink);
+      fireEvent.click(mobileCVLink);
       
-      const updatedHomeLinks = screen.getAllByText('Home');
-      expect(updatedHomeLinks.length).toBeLessThan(allHomeLinks.length);
+      const updatedCVLinks = screen.getAllByText('CV');
+      expect(updatedCVLinks.length).toBeLessThan(allCVLinks.length);
     });
 
     it('should show X icon when menu is open', () => {
