@@ -67,7 +67,7 @@ export default function Contact() {
       {/* Social Links */}
       <div className="space-y-4">
         {profile?.social.map((link, index) => {
-          const Icon = getIcon(link.platform);
+          const Icon = getIcon(link.icon);
           const isMailto = link.url.startsWith('mailto:');
 
           return (

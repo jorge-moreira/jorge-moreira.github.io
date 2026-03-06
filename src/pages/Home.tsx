@@ -55,7 +55,16 @@ export default function Home() {
     <div className="min-h-screen flex flex-col lg:flex-row">
       {/* Hero Section */}
       <div className="flex-1 flex items-center justify-center px-6 py-12 lg:py-20">
-        <div className="max-w-2xl w-full space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-1000">
+        <div className="max-w-2xl w-full space-y-8">
+          {/* Profile Photo - Mobile Only */}
+          <div className="lg:hidden w-24 h-24 rounded-full overflow-hidden border-2 border-border mx-auto">
+            <img 
+              src={profile.photo} 
+              alt={profile.name}
+              className="w-full h-full object-cover scale-125"
+            />
+          </div>
+
           {/* Name and Title */}
           <div className="space-y-4">
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
@@ -122,17 +131,16 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Profile Sidebar */}
-      <div className="lg:w-[400px] xl:w-[450px] bg-muted/30 px-6 py-12 lg:py-20 border-t lg:border-t-0 lg:border-l">
-        <div className="max-w-sm mx-auto space-y-6 animate-in fade-in slide-in-from-right-4 duration-1000 delay-300">
+      {/* Profile Sidebar - Desktop Only */}
+      <div className="hidden lg:block lg:w-[400px] xl:w-[450px] bg-muted/30 px-6 py-12 lg:py-20 border-l">
+        <div className="max-w-sm mx-auto space-y-6">
           {/* Profile Photo */}
-          <div className="relative aspect-square rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-primary/5 border-2 border-border">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-center space-y-2 p-8">
-                <div className="text-6xl">👤</div>
-                <p className="text-sm text-muted-foreground">Profile Photo</p>
-              </div>
-            </div>
+          <div className="w-48 h-48 mx-auto rounded-full overflow-hidden border-2 border-border">
+            <img 
+              src={profile.photo} 
+              alt={profile.name}
+              className="w-full h-full object-cover scale-125"
+            />
           </div>
 
           {/* Info Cards */}

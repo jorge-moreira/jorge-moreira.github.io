@@ -1,10 +1,37 @@
+import { Github, Linkedin } from 'lucide-react';
+
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="border-t mt-auto">
-      <div className="container mx-auto px-4 py-6 text-center text-sm text-muted-foreground">
-        <p>© {currentYear} Jorge Moreira. All rights reserved.</p>
+      <div className="container mx-auto px-4 py-6">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
+          {/* Left: Copyright */}
+          <p className="text-gray-400">© {currentYear} Jorge Moreira</p>
+          
+          {/* Right: Social links */}
+          <div className="flex items-center gap-4">
+            <a 
+              href="https://www.linkedin.com/in/jorge-moreira/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="footer-icon transition-colors"
+              aria-label="LinkedIn"
+            >
+              <Linkedin className="h-5 w-5" />
+            </a>
+            <a 
+              href="https://github.com/Jorge-Moreira" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="footer-icon transition-colors"
+              aria-label="GitHub"
+            >
+              <Github className="h-5 w-5" />
+            </a>
+          </div>
+        </div>
       </div>
     </footer>
   );

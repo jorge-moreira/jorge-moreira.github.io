@@ -131,123 +131,132 @@ export default function CV() {
         </div>
       </header>
 
-      {/* Professional Experience Section */}
-      <section className="mb-16 md:mb-20">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12">
-          Professional Experience
-        </h2>
-        
-        <div className="relative">
-          {/* Timeline line - hidden on mobile */}
-          <div className="hidden md:block absolute left-[7.5rem] top-0 bottom-0 w-px bg-border" />
+      {/* Main Content - Two Column Layout on Desktop */}
+      <div className="grid lg:grid-cols-[2fr_1fr] gap-12 lg:gap-16">
+        {/* Left Column: Professional Experience */}
+        <section>
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12">
+            Professional Experience
+          </h2>
           
-          <div className="space-y-8 md:space-y-12">
-            {experiences.map((exp) => (
-              <div key={exp.id} className="relative">
-                {/* Timeline dot - hidden on mobile */}
-                <div className="hidden md:block absolute left-[7.5rem] top-2 w-3 h-3 rounded-full bg-primary border-4 border-background -translate-x-1/2" />
-                
-                <div className="md:grid md:grid-cols-[7rem_1fr] md:gap-8">
-                  {/* Date */}
-                  <div className="text-sm md:text-base font-medium text-muted-foreground mb-2 md:mb-0 md:text-right md:pt-1">
-                    {exp.startDate}
-                    {exp.endDate && ` - ${exp.endDate}`}
-                    {!exp.endDate && ' - Present'}
-                  </div>
+          <div className="space-y-12">
+            {experiences.map((exp, index) => {
+              const startYear = exp.startDate.split('-')[0] || exp.startDate;
+              
+              return (
+                <div key={exp.id} className="relative">
+                  {/* Timeline connector line */}
+                  {index !== experiences.length - 1 && (
+                    <div className="absolute left-0 top-8 bottom-[-48px] w-[1px] bg-border/40" />
+                  )}
                   
-                  {/* Content */}
-                  <div className="space-y-3">
-                    <div>
-                      <h3 className="text-xl md:text-2xl font-bold">{exp.company}</h3>
-                      <p className="text-base md:text-lg text-muted-foreground mt-1">
-                        {exp.role}
-                      </p>
+                  <div className="flex gap-6">
+                    {/* Year */}
+                    <div className="relative flex-shrink-0 w-16 text-right">
+                      <span className="text-lg font-bold text-foreground">{startYear}</span>
+                      {/* Timeline dot */}
+                      <div className="absolute -left-[21px] top-1 w-2 h-2 rounded-full bg-primary" />
                     </div>
                     
-                    <ul className="space-y-2 text-sm md:text-base">
-                      {exp.description.map((item, idx) => (
-                        <li key={idx} className="pl-5 relative before:content-['•'] before:absolute before:left-0 before:text-muted-foreground">
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                    
-                    {exp.tags && exp.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-2 pt-2">
-                        {exp.tags.map((tag, idx) => (
-                          <Badge key={idx} variant="secondary">
-                            {tag}
-                          </Badge>
+                    {/* Content */}
+                    <div className="flex-1 space-y-3">
+                      {/* Role (as h3 heading) */}
+                      <h3 className="text-xl font-bold">{exp.role}</h3>
+                      
+                      {/* Company */}
+                      <p className="text-base text-muted-foreground -mt-1">{exp.company}</p>
+                      
+                      {/* Description bullets */}
+                      <ul className="space-y-2 text-sm text-muted-foreground">
+                        {exp.description.map((item, idx) => (
+                          <li key={idx} className="flex gap-2 leading-relaxed">
+                            <span className="text-muted-foreground/60 select-none">·</span>
+                            <span className="flex-1">{item}</span>
+                          </li>
                         ))}
-                      </div>
-                    )}
+                      </ul>
+                      
+                      {/* Tags */}
+                      {exp.tags && exp.tags.length > 0 && (
+                        <div className="flex flex-wrap gap-2 pt-1">
+                          {exp.tags.map((tag, idx) => (
+                            <Badge key={idx} variant="outline" className="text-xs font-normal">
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Skills Section */}
-      <section className="mb-16 md:mb-20">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12">Skills</h2>
-        
-        <div className="space-y-8">
-          {Object.entries(groupedSkills).map(([category, skillList]) => (
-            <div key={category}>
-              <h3 className="text-lg md:text-xl font-semibold mb-4 text-muted-foreground">
-                {category}
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skillList.map((skillName, idx) => (
-                  <Badge key={idx} variant="outline" className="text-sm">
-                    {skillName}
-                  </Badge>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Education Section */}
-      <section className="mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12">Education</h2>
-        
-        <div className="space-y-6">
-          {education.map((edu) => {
-            const yearDisplay = edu.endYear && edu.startYear !== edu.endYear
-              ? `${edu.startYear} - ${edu.endYear}`
-              : edu.startYear;
+        {/* Right Column: Skills & Education */}
+        <aside className="space-y-12 lg:space-y-16">
+          {/* Skills Section */}
+          <section>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12">Skills</h2>
             
-            return (
-              <Card key={edu.id}>
-                <CardContent className="p-6">
-                  <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
-                    <div>
-                      <h3 className="text-xl md:text-2xl font-bold">
-                        {edu.institution}
-                      </h3>
-                      <p className="text-base md:text-lg text-muted-foreground mt-1">
-                        {edu.degree}
-                      </p>
-                    </div>
-                    <div className="text-sm md:text-base font-medium text-muted-foreground md:text-right">
-                      {yearDisplay}
-                    </div>
+            <div className="space-y-8">
+              {Object.entries(groupedSkills).map(([category, skillList]) => (
+                <div key={category}>
+                  <h3 className="text-lg md:text-xl font-semibold mb-4 text-muted-foreground">
+                    {category}
+                  </h3>
+                  <div className="flex flex-wrap gap-2">
+                    {skillList.map((skillName, idx) => (
+                      <Badge key={idx} variant="outline" className="text-sm">
+                        {skillName}
+                      </Badge>
+                    ))}
                   </div>
-                  {edu.description && (
-                    <p className="text-sm md:text-base text-muted-foreground mt-2">
-                      {edu.description}
-                    </p>
-                  )}
-                </CardContent>
-              </Card>
-            );
-          })}
-        </div>
-      </section>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Education Section */}
+          <section>
+            <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12">Education</h2>
+            
+            <div className="space-y-6">
+              {education.map((edu) => {
+                const yearDisplay = edu.endYear && edu.startYear !== edu.endYear
+                  ? `${edu.startYear} - ${edu.endYear}`
+                  : edu.startYear;
+                
+                return (
+                  <Card key={edu.id}>
+                    <CardContent className="p-6">
+                      <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-2 mb-2">
+                        <div>
+                          <h3 className="text-xl md:text-2xl font-bold">
+                            {edu.institution}
+                          </h3>
+                          <p className="text-base md:text-lg text-muted-foreground mt-1">
+                            {edu.degree}
+                          </p>
+                        </div>
+                        <div className="text-sm md:text-base font-medium text-muted-foreground md:text-right">
+                          {yearDisplay}
+                        </div>
+                      </div>
+                      {edu.description && (
+                        <p className="text-sm md:text-base text-muted-foreground mt-2">
+                          {edu.description}
+                        </p>
+                      )}
+                    </CardContent>
+                  </Card>
+                );
+              })}
+            </div>
+          </section>
+        </aside>
+      </div>
     </div>
   );
 }
