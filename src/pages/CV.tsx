@@ -7,6 +7,7 @@ import type { Education } from '@/models/Education';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
+import { generateCVPdf } from '@/lib/generatePdf';
 
 export default function CV() {
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -14,6 +15,7 @@ export default function CV() {
   const [skills, setSkills] = useState<Skill[]>([]);
   const [education, setEducation] = useState<Education[]>([]);
   const [loading, setLoading] = useState(true);
+  const [downloadingPdf, setDownloadingPdf] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,6 +41,20 @@ export default function CV() {
 
     fetchData();
   }, []);
+
+  const handleDownloadPdf = async () => {
+    if (!profile) return;
+    
+    setDownloadingPdf(true);
+    try {
+      await generateCVPdf(profile, experiences, skills, education);
+    } catch (error) {
+      console.error('Failed to download PDF:', error);
+      alert('Failed to generate PDF. Please try again.');
+    } finally {
+      setDownloadingPdf(false);
+    }
+  };
 
   if (loading) {
     return (
@@ -90,7 +106,12 @@ export default function CV() {
         </div>
 
         <div className="pt-2">
-          <Button variant="outline" className="gap-2">
+          <Button 
+            variant="outline" 
+            className="gap-2"
+            onClick={handleDownloadPdf}
+            disabled={downloadingPdf}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -105,7 +126,7 @@ export default function CV() {
                 d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
               />
             </svg>
-            Download PDF
+            {downloadingPdf ? 'Generating PDF...' : 'Download PDF'}
           </Button>
         </div>
       </header>
