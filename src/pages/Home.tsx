@@ -62,10 +62,10 @@ export default function Home() {
 
           {/* Name and Title */}
           <div className="space-y-3">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-normal tracking-tight">
               {profile.name}
             </h1>
-            <h2 className="text-2xl sm:text-3xl text-muted-foreground font-light">
+            <h2 className="text-2xl sm:text-3xl text-muted-foreground font-extralight">
               {profile.title}
             </h2>
           </div>
@@ -103,7 +103,7 @@ export default function Home() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground social-icon transition-colors"
                   aria-label={link.platform}
                 >
                   <Icon className="h-5 w-5" />

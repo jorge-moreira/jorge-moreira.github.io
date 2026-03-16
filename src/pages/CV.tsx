@@ -7,7 +7,6 @@ import type { Education } from '@/models/Education';
 import type { Language } from '@/models/Language';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
 import { generateCVPdf } from '@/lib/generatePdf';
 import { Timeline, TimelineItem } from '@/components/Timeline';
 
@@ -112,10 +111,10 @@ export default function CV() {
       {/* Header Section */}
       <header className="mb-12 md:mb-16 space-y-6">
         <div className="space-y-2">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight">
             {profile.name}
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground">
+          <p className="text-xl md:text-2xl font-extralight text-muted-foreground">
             {profile.title}
           </p>
         </div>
@@ -154,10 +153,10 @@ export default function CV() {
       </header>
 
       {/* Main Content - Two Column Layout on Desktop */}
-      <div className="grid lg:grid-cols-[2fr_1fr] gap-12 lg:gap-16">
+      <div className="grid lg:grid-cols-[2fr_1fr] gap-12 lg:gap-24">
         {/* Left Column: Work Experience */}
         <section>
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-4xl font-normal mb-8 md:mb-12">
             Work Experience
           </h2>
           
@@ -172,12 +171,12 @@ export default function CV() {
                   <div className="space-y-3">
                     {/* Role with inline year badge */}
                     <div className="flex items-center gap-3">
-                      <h3 className="text-2xl font-bold">{exp.role}</h3>
-                      <span className="text-xs text-gray-400 font-normal mt-1">{startYear}</span>
+                      <h3 className="text-2xl font-normal">{exp.role}</h3>
+                      <span className="text-xs text-gray-500 dark:text-gray-400 font-normal mt-1">{startYear}</span>
                     </div>
                     
                     {/* Company with primary color */}
-                    <p className="text-lg font-medium text-primary">{exp.company}</p>
+                    <p className="text-lg font-light dark:text-blue-200">{exp.company}</p>
                     
                     {/* Description bullets */}
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -207,15 +206,15 @@ export default function CV() {
         </section>
 
         {/* Right Column: Skills & Education */}
-        <aside className="space-y-12 lg:space-y-16">
+        <aside className="space-y-14 lg:space-y-20">
           {/* Skills Section */}
           <section>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12">Skills</h2>
+            <h2 className="text-3xl md:text-4xl font-normal mb-8">Skills</h2>
             
             <div className="space-y-8">
               {Object.entries(groupedSkills).map(([category, skillList]) => (
                 <div key={category}>
-                  <h3 className="text-lg md:text-xl font-semibold mb-4 text-muted-foreground">
+                  <h3 className="text-lg md:text-xl font-normal mb-4 text-muted-foreground">
                     {category}
                   </h3>
                   <div className="flex flex-wrap gap-2">
@@ -232,7 +231,7 @@ export default function CV() {
 
           {/* Education Section */}
           <section>
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12">Education</h2>
+            <h2 className="text-3xl md:text-4xl font-normal mb-8 md:mb-6">Education</h2>
             
             <div className="space-y-6">
               {education.map((edu) => {
@@ -241,31 +240,14 @@ export default function CV() {
                   : edu.startYear;
                 
                 return (
-                  <Card key={edu.id} className="border-0 shadow-none">
-                    <CardContent className="p-6">
-                      {/* Description - First and most highlighted */}
-                      {edu.description && (
-                        <h3 className="text-xl md:text-2xl font-bold mb-3">
-                          {edu.description}
-                        </h3>
-                      )}
-                      
-                      {/* Degree */}
-                      <p className="text-base md:text-lg font-semibold mb-2">
-                        {edu.degree}
-                      </p>
-                      
-                      {/* Institution */}
-                      <p className="text-sm md:text-base text-muted-foreground mb-1">
-                        {edu.institution}
-                      </p>
-                      
-                      {/* Years - smaller and lighter */}
-                      <p className="text-xs md:text-sm text-gray-400">
-                        {yearDisplay}
-                      </p>
-                    </CardContent>
-                  </Card>
+                  <div key={edu.id} className="space-y-1">
+                    {edu.description && (
+                      <h3 className="text-lg font-medium">{edu.description}</h3>
+                    )}
+                    <p className="text-sm font-normal">{edu.degree}</p>
+                    <p className="text-sm font-light dark:text-blue-200">{edu.institution}</p>
+                    <p className="text-xs font-normal text-gray-500 dark:text-gray-400">{yearDisplay}</p>
+                  </div>
                 );
               })}
             </div>
@@ -274,12 +256,12 @@ export default function CV() {
           {/* Languages Section */}
           {languages.length > 0 && (
             <section>
-              <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12">Languages</h2>
+              <h2 className="text-3xl md:text-4xl font-normal mb-8 md:mb-6">Languages</h2>
               <div className="space-y-3">
                 {languages.map((lang) => (
                   <div key={lang.name} className="flex items-center justify-between">
                     <span className="text-base font-medium">{lang.name}</span>
-                    <span className="text-sm text-gray-400">{lang.level}</span>
+                    <span className="text-sm text-gray-500 dark:text-gray-400">{lang.level}</span>
                   </div>
                 ))}
               </div>

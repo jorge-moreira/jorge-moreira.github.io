@@ -4,7 +4,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t mt-auto">
+    <footer>
       <div className="container mx-auto px-4 py-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
           {/* Left: Copyright */}
@@ -16,7 +16,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/jorge-moreira/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="footer-icon transition-colors"
+              className="social-icon transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin className="h-5 w-5" />
@@ -25,7 +25,7 @@ export default function Footer() {
               href="https://github.com/Jorge-Moreira" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="footer-icon transition-colors"
+              className="social-icon transition-colors"
               aria-label="GitHub"
             >
               <Github className="h-5 w-5" />

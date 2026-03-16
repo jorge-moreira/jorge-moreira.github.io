@@ -79,15 +79,15 @@ body {
   animation: fadeIn 0.3s ease-in;
 }
 
-.footer-icon {
+.social-icon {
   color: rgb(156 163 175); /* gray-400 */
 }
 
-.footer-icon:hover {
+.social-icon:hover {
   color: rgb(17 24 39); /* gray-900 for light mode */
 }
 
-.dark .footer-icon:hover {
+.dark .social-icon:hover {
   color: rgb(255 255 255); /* white for dark mode */
 }
 
