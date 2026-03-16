@@ -41,9 +41,8 @@ export default function Projects() {
     <div className="container mx-auto px-6 py-12 max-w-7xl">
       {/* Header */}
       <div className="mb-12 space-y-4">
-        <h1 className="text-4xl font-bold tracking-tight">Projects</h1>
-        <p className="text-lg text-muted-foreground">
-          A selection of projects I've worked on
+        <p className="text-3xl font-normal text-muted-foreground tracking-tight">
+          A selection of projects I've built or contributed to
         </p>
       </div>
 
@@ -81,9 +80,7 @@ export default function Projects() {
                   )}
                 </div>
                 {project.company && (
-                  <p className="text-sm text-muted-foreground">
-                    at <span className="font-medium">{project.company}</span>
-                  </p>
+                  <p className="text-base font-light dark:text-blue-200">{project.company}</p>
                 )}
               </CardHeader>
               <CardContent className="flex-1 flex flex-col gap-4">
@@ -92,7 +89,7 @@ export default function Projects() {
                 </p>
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {project.techStack.map((tech, index) => (
-                    <Badge key={index} variant="secondary" className="text-xs">
+                    <Badge key={index} className="text-xs font-normal border-0 !bg-slate-200 !text-slate-700 dark:!bg-slate-600 dark:!text-slate-100">
                       {tech}
                     </Badge>
                   ))}

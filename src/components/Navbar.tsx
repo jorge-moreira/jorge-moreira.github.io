@@ -29,7 +29,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link 
               to="/" 
-              className="text-xl font-bold hover:opacity-80 transition-opacity"
+              className="text-xl font-normal hover:opacity-80 transition-opacity"
             >
               jorge-moreira.dev
             </Link>
