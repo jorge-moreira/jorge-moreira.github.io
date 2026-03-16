@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1",
+    "title": "Personal Portfolio",
+    "purpose": "Modern portfolio website built as an SPA with routing, a CV page with PDF and ATS export, and a projects showcase. Designed with a clean, responsive layout and dark/light theme support.",
+    "techStack": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "shadcn/ui"
+    ],
+    "company": null,
+    "link": "https://jorge-moreira.github.io"
+  },
+  {
+    "id": "2",
+    "title": "Payment Switch Modernisation",
+    "purpose": "Contributed to the ongoing modernisation of a distributed payment switch — including transaction processing logic, risk rule processing, and service modularisation. Maintained and evolved a shared NuGet package ecosystem covering cryptography, caching, messaging, audit logging, and Windows service management used across the platform.",
+    "techStack": [
+      "C#",
+      ".NET Framework 4.8.2",
+      "SQL Server",
+      "Windows Services",
+      "NuGet"
+    ],
+    "company": "Planet",
+    "link": null
+  },
+  {
+    "id": "3",
+    "title": "Cloud-Native Payment Platform",
+    "purpose": "Microservices-based payment portal encompassing API gateway routing, payment terminal management, a reports scheduling service with email delivery and downloadable artifacts, and an event-driven transaction processing pipeline using the Outbox Pattern. Observability delivered end-to-end via OpenTelemetry. Infrastructure managed through GitOps with ArgoCD and Helm on Kubernetes.",
+    "techStack": [
+      "C#",
+      "ASP.NET Core",
+      "MongoDB",
+      "Apache Kafka",
+      "OpenTelemetry",
+      "Kubernetes",
+      "Helm",
+      "ArgoCD"
+    ],
+    "company": "Planet",
+    "link": null
+  },
+  {
+    "id": "4",
+    "title": "STORM Modules",
+    "purpose": "Backend services and internal web portal supporting merchant onboarding, order processing, logistics coordination, and operational KPI dashboards. Built as a modular platform with event-driven microservices handling the full order lifecycle — from placement through to fulfilment.",
+    "techStack": [
+      "C#",
+      "ASP.NET Core",
+      ".NET Framework 4.7.2",
+      "SQL Server",
+      "RabbitMQ",
+      "Apache Kafka",
+      "React"
+    ],
+    "company": "Farfetch",
+    "link": null
+  },
+  {
+    "id": "5",
+    "title": "myExpenses App",
+    "purpose": "An internal mobile app for employee expense submission, paired with a web backoffice for manager approval workflows and categorised reporting. Built as a company-wide tool during a bachelor internship.",
+    "techStack": [
+      "PowerApps",
+      ".NET Framework 4.6.2",
+      "SQL Server"
+    ],
+    "company": "myPartner",
+    "link": null
+  },
+  {
+    "id": "6",
+    "title": "Bitburner Automation Scripts",
+    "purpose": "A TypeScript scripting suite for the Bitburner programming game, implementing hacking strategies, server fleet management, and resource optimisation through the game's Netscript API. Kept in sync with the latest API type definitions.",
+    "techStack": [
+      "TypeScript",
+      "Netscript API"
+    ],
+    "company": null,
+    "link": "https://github.com/jorge-moreira/bitburner"
+  }
+]

@@ -1,0 +1,51 @@
+{
+  "name": "Jorge Moreira",
+  "title": "Senior Software Engineer",
+  "bio": [
+    "I'm a Senior Software Engineer based in Porto with 7+ years of experience designing and building backend systems across e-commerce and fintech.",
+    "I specialise in backend engineering: distributed architectures, event-driven services, cloud infrastructure, and observability — currently contributing to a production payments platform that handles transactions across multiple markets.",
+    "Equally comfortable diving deep into a complex distributed system, leading technical discussions, driving API design standards across teams, or investing in the growth of the engineers around me."
+  ],
+  "photo": "/profile-photo.png",
+  "location": "Porto, Portugal",
+  "currentRole": "Senior Software Engineer",
+  "focusAreas": [
+    "Backend Systems",
+    "Distributed Architecture",
+    "API Design & Standards",
+    "Fintech & Payments",
+    "Engineering Mentorship"
+  ],
+  "social": [
+    {
+      "platform": "Email",
+      "url": "mailto:jorge.moreira.96@gmail.com",
+      "icon": "mail"
+    },
+    {
+      "platform": "LinkedIn",
+      "url": "https://www.linkedin.com/in/jorge-moreira/",
+      "icon": "linkedin"
+    },
+    {
+      "platform": "GitHub",
+      "url": "https://github.com/Jorge-Moreira",
+      "icon": "github"
+    }
+  ],
+  "carePriorities": [
+    "Systems that are observable by default — in fintech, surprises in production are not an option",
+    "API design as a shared discipline, not an afterthought bolted on after the fact",
+    "Writing code the next engineer can read, understand, and confidently evolve",
+    "Bridging legacy and modern — keeping the lights on while moving forward",
+    "Creating space for the engineers around me to take real ownership and grow"
+  ],
+  "interests": [
+    "Owned by a black cat — who, for the record, is not named GitHub",
+    "Volunteer when time allows — giving back matters",
+    "Photography as a way to slow down and notice things",
+    "Surfing, camping, and long walks through the countryside",
+    "Music and cinema for when the screen needs to be someone else's",
+    "Sports are non-negotiable — movement is part of the routine"
+  ]
+}

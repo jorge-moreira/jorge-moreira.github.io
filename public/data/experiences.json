@@ -1,0 +1,148 @@
+[
+  {
+    "id": "1",
+    "company": "Planet",
+    "role": "Senior Software Engineer",
+    "location": "Porto, Portugal",
+    "startDate": "Jun 2023",
+    "endDate": null,
+    "description": [
+      "Senior Software Engineer in a fintech environment, contributing to a cloud-native payment processing platform built on a distributed microservices architecture",
+      "Core contributor to payment processing services covering terminal lifecycle management, transaction operations, payment actions (tokenization, refund), merchant hierarchy authorization, and resilience policy implementation",
+      "Built and maintained an event-driven service processing Kafka events across the full payment lifecycle — request handling, funding events, history timeline construction, currency conversion, and out-of-order event resolution",
+      "Developed a report scheduling service supporting one-off and recurring executions, with email delivery, downloadable artifact generation, and schedule lifecycle management",
+      "Contributed to the adoption of OpenTelemetry observability across multiple services — the API gateway, payment processing, event handling, and reporting",
+      "Built an internal code generation tool to auto-generate C# database objects from MongoDB JSON Schema specifications",
+      "Contributed to a distributed payment switch system — implementing payment message protocol handling improvements, transaction risk rule processing, ISO 8583 protocol message mapping, and service reliability monitoring",
+      "Maintained and evolved a shared NuGet package ecosystem used across the legacy platform, covering cryptography, caching, messaging, audit logging, system settings, and Windows service management"
+    ],
+    "tags": [
+      "Microservices",
+      "Payments",
+      "Event-Driven Architecture",
+      "Observability",
+      "GitOps",
+      "Mentorship"
+    ],
+    "techStack": [
+      "ASP.NET Core",
+      "MongoDB",
+      "Apache Kafka",
+      "OpenTelemetry",
+      "Kubernetes",
+      "Helm",
+      "ArgoCD"
+    ]
+  },
+  {
+    "id": "2",
+    "company": "Farfetch",
+    "role": "Software Engineer",
+    "location": "Porto, Portugal",
+    "startDate": "Aug 2019",
+    "endDate": "Jun 2023",
+    "description": [
+      "Worked alongside UI engineers to develop React components for the order processing portal module",
+      "Joined a new team that owned readmodel services handling customer and order information, integrated with Salesforce",
+      "Worked on multiple microservices that handled courier integration within the platform (DHL, UPS, FedEx)",
+      "Joined the API Champions group that provided guidance and validated cross-team API-first designs, maintaining close contact with the platform architecture team",
+      "Contributed to CI/CD pipelines for new microservices created by the team (Jenkins Declarative Pipelines)",
+      "Contributed to internal cross-company frameworks",
+      "Mentored and onboarded team newcomers"
+    ],
+    "tags": [
+      "Portal",
+      "Order Processing",
+      "Customers",
+      "Logistics",
+      "Couriers Integration",
+      "API Design",
+      "Mentorship",
+      "Salesforce",
+      "API-first",
+      "CI/CD",
+      "Jenkins"
+    ],
+    "techStack": [
+      ".NET Framework 4.7.2",
+      "ASP.NET Core",
+      "Microsoft SQL Server",
+      "MongoDB",
+      "Apache Kafka",
+      "ElasticSearch",
+      "React Native",
+      "Kong"
+    ]
+  },
+  {
+    "id": "3",
+    "company": "Farfetch",
+    "role": "Junior Software Engineer",
+    "location": "Porto, Portugal",
+    "startDate": "Apr 2018",
+    "endDate": "Aug 2019",
+    "description": [
+      "Continued on the same team from the Plug-in Programme, taking on expanded responsibilities",
+      "Took on increased responsibilities within the team, handling more tasks and was also assigned to manage releases",
+      "Was later added to the on-call rotation, handling and documenting production incidents",
+      "Contributed to a portal module owned by the team, featuring dashboards that surfaced merchant KPIs"
+    ],
+    "tags": [
+      "Portal",
+      "Order Processing",
+      "Dashboards",
+      "Release Management",
+      "Production Incidents Documentation"
+    ],
+    "techStack": [
+      ".NET Framework 4.6.2",
+      "Microsoft SQL Server",
+      "RabbitMQ",
+      "Apache Kafka"
+    ]
+  },
+  {
+    "id": "4",
+    "company": "Farfetch",
+    "role": "Software Engineer Trainee",
+    "location": "Porto, Portugal",
+    "startDate": "Sep 2017",
+    "endDate": "Apr 2018",
+    "description": [
+      "Selected for the Plug-in Programme through multiple interview rounds, targeting recently graduated students",
+      "Had intensive onboarding weeks to introduce new joiners to tools and industry best practices",
+      "Joined a team that developed a portal module focused on merchant order processing"
+    ],
+    "tags": [
+      "Portal",
+      "Order Processing",
+      "Plug-in Programme"
+    ],
+    "techStack": [
+      ".NET Framework 4.6.2",
+      "Microsoft SQL Server"
+    ]
+  },
+  {
+    "id": "5",
+    "company": "myPartner",
+    "role": "Internship",
+    "location": "Porto, Portugal",
+    "startDate": "Mar 2017",
+    "endDate": "Jul 2017",
+    "description": [
+      "Final-year Bachelor's internship as part of the Informatics Engineering degree programme",
+      "Built an enterprise expenses app using PowerApps",
+      "Built an expenses reporting backoffice with categorization and manager approval connected to the app"
+    ],
+    "tags": [
+      "PowerApps",
+      "Expenses"
+    ],
+    "techStack": [
+      ".NET Framework 4.6.2",
+      "Microsoft SQL Server",
+      "PowerApps"
+    ]
+  }
+]

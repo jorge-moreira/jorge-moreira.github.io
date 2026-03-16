@@ -1,0 +1,47 @@
+[
+  { "name": "C#", "category": "Languages" },
+  { "name": "TypeScript", "category": "Languages" },
+  { "name": "JavaScript", "category": "Languages" },
+  { "name": "Java", "category": "Languages" },
+
+  { "name": "MongoDB", "category": "Databases" },
+  { "name": "PostgreSQL", "category": "Databases" },
+  { "name": "SQL Server", "category": "Databases" },
+  { "name": "Redis", "category": "Databases" },
+
+  { "name": "RESTful APIs", "category": "APIs & Integration" },
+  { "name": "GraphQL", "category": "APIs & Integration" },
+  { "name": "OpenAPI", "category": "APIs & Integration" },
+  { "name": "Protocol Buffers", "category": "APIs & Integration" },
+  { "name": "JWT", "category": "APIs & Integration" },
+  { "name": "OAuth 2.0", "category": "APIs & Integration" },
+  { "name": "OpenID Connect", "category": "APIs & Integration" },
+
+  { "name": "Apache Kafka", "category": "Messaging & Events" },
+  { "name": "Event-Driven Architecture", "category": "Messaging & Events" },
+  { "name": "Outbox Pattern", "category": "Messaging & Events" },
+
+  { "name": "Docker", "category": "Cloud & Infrastructure" },
+  { "name": "Kubernetes/EKS", "category": "Cloud & Infrastructure" },
+  { "name": "Helm", "category": "Cloud & Infrastructure" },
+  { "name": "ArgoCD", "category": "Cloud & Infrastructure" },
+  { "name": "GitHub Actions", "category": "Cloud & Infrastructure" },
+  { "name": "Jenkins", "category": "Cloud & Infrastructure" },
+
+  { "name": "Kong", "category": "API Gateways" },
+  { "name": "Ocelot", "category": "API Gateways" },
+
+  { "name": "OpenTelemetry", "category": "Observability" },
+  { "name": "Serilog", "category": "Observability" },
+
+  { "name": "Auth0", "category": "Auth & Security" },
+  { "name": "Microsoft Entra ID", "category": "Auth & Security" },
+  { "name": "JWT / OpenID Connect", "category": "Auth & Security" },
+
+  { "name": "Clean Architecture", "category": "Architecture & Practices" },
+  { "name": "Domain-Driven Design", "category": "Architecture & Practices" },
+  { "name": "Behaviour-Driven Design", "category": "Architecture & Practices" },
+  { "name": "Test-Driven Design", "category": "Architecture & Practices" },
+  { "name": "Microservices", "category": "Architecture & Practices" },
+  { "name": "CQRS", "category": "Architecture & Practices" }
+]
