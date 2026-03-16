@@ -261,7 +261,7 @@ describe('generatePdf', () => {
 
       try {
         await generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation, []);
-      } catch (error) {
+      } catch {
         // Expected error
       }
 
