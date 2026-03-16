@@ -1,0 +1,17 @@
+[
+  {
+    "id": "1",
+    "institution": "Instituto Superior de Engenharia do Porto",
+    "degree": "Bachelor's Degree",
+    "description": "Informatics Engineering",
+    "startYear": "2014",
+    "endYear": "2017"
+  },
+  {
+    "id": "2",
+    "institution": "Instituto Superior de Administração e Gestão",
+    "degree": "Mini MBA",
+    "description": "Business Management",
+    "startYear": "2021"
+  }
+]

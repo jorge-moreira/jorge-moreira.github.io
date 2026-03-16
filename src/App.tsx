@@ -1,27 +1,26 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './hooks/useTheme';
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import CV from './pages/CV';
+import Projects from './pages/Projects';
+import Contact from './pages/Contact';
 import './App.css';
-import Profile from './pages/profile/Profile';
-import MainPage from './pages/main/MainPage';
-import NavigationBar from './components/navigationBar/NavigationBar';
-import NavigationItem from './components/navigationBar/NavigationItem';
 
 function App() {
   return (
-    <div className="app">
-      <NavigationBar title='Jorge Moreira' link='#profile'>
-        <NavigationItem name='Work Experiences' link='#work_experiences' />
-        <NavigationItem name='Education' link='#education' />
-        <NavigationItem name='Software Skills' link='#software_skills' />
-        <NavigationItem name='Personal Skills' link='#personal_skills' />
-        <NavigationItem name='Interests & Hobbies' link='#interests_hobbies' />
-      </NavigationBar>
-      <header className="app-header">
-        <Profile />
-      </header>
-      <MainPage />
-      <footer>
-
-      </footer>
-    </div>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="cv" element={<CV />} />
+            <Route path="projects" element={<Projects />} />
+            <Route path="contact" element={<Contact />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
