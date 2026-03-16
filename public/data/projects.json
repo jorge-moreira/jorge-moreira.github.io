@@ -2,7 +2,7 @@
   {
     "id": "1",
     "title": "Personal Portfolio",
-    "purpose": "Modern portfolio website built as a SPA with routing, a CV page with PDF and ATS export and a projects showcase. Designed with a clean, responsive layout and dark/light theme support.",
+    "purpose": "Modern portfolio website built as an SPA with routing, a CV page with PDF and ATS export, and a projects showcase. Designed with a clean, responsive layout and dark/light theme support.",
     "techStack": [
       "React",
       "TypeScript",

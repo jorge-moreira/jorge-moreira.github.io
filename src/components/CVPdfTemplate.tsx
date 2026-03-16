@@ -68,6 +68,11 @@ const styles = StyleSheet.create({
   role: {
     fontSize: 11,
     color: '#666666',
+    marginBottom: 2,
+  },
+  location: {
+    fontSize: 9,
+    color: '#888888',
     marginBottom: 4,
   },
   dates: {
@@ -185,6 +190,9 @@ export function CVPdfTemplate({ profile, experiences, skills, education, languag
                 <View style={{ flex: 1 }}>
                   <Text style={styles.company}>{exp.company}</Text>
                   <Text style={styles.role}>{exp.role}</Text>
+                  {exp.location && (
+                    <Text style={styles.location}>{exp.location}</Text>
+                  )}
                 </View>
                 <Text style={styles.dates}>
                   {exp.startDate}{exp.endDate ? ` - ${exp.endDate}` : ' - Present'}

@@ -37,7 +37,7 @@ export default function Projects() {
   }
 
   return (
-    <div className="container mx-auto px-6 py-12 max-w-7xl">
+    <div className="container mx-auto px-6 py-6 md:py-10 max-w-7xl">
       {/* Header */}
       <div className="mb-12 space-y-4">
         <p className="text-3xl font-normal text-muted-foreground tracking-tight">
@@ -55,7 +55,7 @@ export default function Projects() {
           {projects.map((project) => {
             const card = (
               <Card
-                className={`flex flex-col h-full transition-all duration-200 group-hover:shadow-lg group-hover:-translate-y-1 ${!project.link ? "hover:shadow-lg hover:-translate-y-1" : ""}`}
+                className={`flex flex-col h-full transition-all duration-200 border-slate-300 dark:border-slate-600 shadow-sm group-hover:shadow-lg group-hover:-translate-y-1 ${!project.link ? "hover:shadow-lg hover:-translate-y-1" : ""}`}
               >
                 <CardHeader>
                   <div className="flex items-start justify-between gap-4">

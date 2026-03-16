@@ -43,6 +43,7 @@ function buildText(
   experiences.forEach(exp => {
     const dateRange = exp.endDate ? `${exp.startDate} - ${exp.endDate}` : `${exp.startDate} - Present`;
     lines.push(`${exp.company} | ${exp.role} | ${dateRange}`);
+    if (exp.location) lines.push(`  ${exp.location}`);
     exp.description.forEach(item => lines.push(`  • ${item}`));
     if (exp.techStack && exp.techStack.length > 0) {
       lines.push(`  Technologies: ${exp.techStack.join(', ')}`);

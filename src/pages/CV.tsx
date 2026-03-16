@@ -130,7 +130,7 @@ export default function CV() {
   }, {} as Record<string, string[]>);
 
   return (
-    <div className="container max-w-5xl mx-auto px-4 py-8 md:py-12">
+    <div className="container max-w-5xl mx-auto px-4 py-6 md:py-10">
       {/* Header Section */}
       <header className="mb-12 md:mb-16 space-y-6">
         <div className="space-y-2">
@@ -209,7 +209,7 @@ export default function CV() {
           
           <Timeline>
             {experiences.map((exp, index) => {
-              const startYear = exp.startDate.split('-')[0] || exp.startDate;
+              const startYear = exp.startDate.split(' ').pop() || exp.startDate;
               const dotColor = getCompanyColor(exp.company);
               const isLast = index === experiences.length - 1;
               

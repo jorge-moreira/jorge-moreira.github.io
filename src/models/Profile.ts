@@ -14,4 +14,5 @@ export interface Profile {
   focusAreas: string[];
   social: SocialLink[];
   carePriorities?: string[];
+  interests?: string[];
 }

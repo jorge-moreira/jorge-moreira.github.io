@@ -19,6 +19,7 @@ const mockProfile: Profile = {
     { platform: 'Email', url: 'mailto:john@example.com', icon: 'mail' },
   ],
   carePriorities: ['Code Quality', 'Team Collaboration', 'Continuous Learning'],
+  interests: ['Owned by a black cat', 'Photography', 'Surfing'],
 };
 
 const renderHome = () => {
@@ -170,7 +171,7 @@ describe('Home', () => {
       renderHome();
 
       await waitFor(() => {
-        expect(screen.getAllByText('What I care about').length).toBeGreaterThan(0);
+        expect(screen.getAllByText('What I stand for').length).toBeGreaterThan(0);
       });
 
       expect(screen.getAllByText('Code Quality').length).toBeGreaterThan(0);
@@ -196,7 +197,28 @@ describe('Home', () => {
         expect(screen.getByText('John Doe')).toBeInTheDocument();
       });
 
-      expect(screen.queryAllByText('What I care about')).toHaveLength(0);
+      expect(screen.queryAllByText('What I stand for')).toHaveLength(0);
+    });
+
+    it('should render interests (Beyond the keyboard) when available', async () => {
+      const mockDataSource = {
+        getProfile: vi.fn().mockResolvedValue(mockProfile),
+        getExperiences: vi.fn(),
+        getSkills: vi.fn(),
+        getEducation: vi.fn(),
+        getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
+      };
+
+      vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
+
+      renderHome();
+
+      await waitFor(() => {
+        expect(screen.getAllByText('Beyond the keyboard').length).toBeGreaterThan(0);
+      });
+
+      expect(screen.getAllByText(/Photography/).length).toBeGreaterThan(0);
     });
   });
 
