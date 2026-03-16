@@ -22,16 +22,33 @@
     "startDate": "2019",
     "endDate": "2023",
     "description": [
-      "Worked as Software Engineer at Farfetch",
-      "Key responsibilities and achievements to be detailed",
-      "Technologies and methodologies used"
+      "Worked alongside the UI software engineers to develop React components to the order processig portal module",
+      "Joined a new team that owned a readmodel services that handled customer and order information that was also integrated with Salesforce",
+      "Worked on multiple microservices that handled courier integration within the platform (DHL, UPS, FedEx)",
+      "Joined the API Champions group that provided guidance and validated cross-team API-first designs, having a close contact with the platform architecture team",
+      "Contributed to the CI/CD setup of the new microservices created by the team (Jenkins Declarative Pipelines)",
+      "Contributed to internal cross-company frameworks",
+      "Mentored and onboarded team newcomers",
+      ".NET Framework 4.7.2",
+      "ASP.NET Core",
+      "Microsoft SQL Server",
+      "MongoDB",
+      "Apache Kafka",
+      "ElasticSearch",
+      "React Native"
     ],
     "tags": [
       "Portal",
       "Order Processing",
+      "Customers",
       "Logistics",
+      "Couriers Integration",
       "API Design",
-      "Mentorship"
+      "Mentorship",
+      "Salesforce",
+      "API-first",
+      "CI/CD",
+      "Jenkins"
     ]
   },
   {
@@ -48,7 +65,7 @@
       ".NET Framework 4.6.2",
       "Microsoft SQL Server",
       "RabbitMQ",
-      "Kafka"
+      "Apache Kafka"
     ],
     "tags": [
       "Portal",

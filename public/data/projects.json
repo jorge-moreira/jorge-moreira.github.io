@@ -46,18 +46,6 @@
   },
   {
     "id": "4",
-    "title": "myExpenses App",
-    "purpose": "An internal mobile app for employee expense submission, paired with a web backoffice for manager approval workflows and categorised reporting. Built as a company-wide tool during a bachelor internship.",
-    "techStack": [
-      "PowerApps",
-      ".NET Framework 4.6.2",
-      "SQL Server"
-    ],
-    "company": "myPartner",
-    "link": null
-  },
-  {
-    "id": "5",
     "title": "STORM Modules",
     "purpose": "Backend services and internal web portal supporting merchant onboarding, order processing, logistics coordination, and operational KPI dashboards. Built as a modular platform with event-driven microservices handling the full order lifecycle — from placement through to fulfilment.",
     "techStack": [
@@ -70,6 +58,18 @@
       "React"
     ],
     "company": "Farfetch",
+    "link": null
+  },
+  {
+    "id": "5",
+    "title": "myExpenses App",
+    "purpose": "An internal mobile app for employee expense submission, paired with a web backoffice for manager approval workflows and categorised reporting. Built as a company-wide tool during a bachelor internship.",
+    "techStack": [
+      "PowerApps",
+      ".NET Framework 4.6.2",
+      "SQL Server"
+    ],
+    "company": "myPartner",
     "link": null
   },
   {
