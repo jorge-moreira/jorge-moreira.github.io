@@ -3,12 +3,14 @@ import type { Profile } from '@/models/Profile';
 import type { Experience } from '@/models/Experience';
 import type { Skill } from '@/models/Skill';
 import type { Education } from '@/models/Education';
+import type { Language } from '@/models/Language';
 
 interface CVPdfTemplateProps {
   profile: Profile;
   experiences: Experience[];
   skills: Skill[];
   education: Education[];
+  languages: Language[];
 }
 
 const styles = StyleSheet.create({
@@ -133,9 +135,22 @@ const styles = StyleSheet.create({
     fontSize: 8,
     color: '#999999',
   },
+  languageItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 4,
+  },
+  languageName: {
+    fontSize: 10,
+    fontWeight: 'bold',
+  },
+  languageLevel: {
+    fontSize: 10,
+    color: '#666666',
+  },
 });
 
-export function CVPdfTemplate({ profile, experiences, skills, education }: CVPdfTemplateProps) {
+export function CVPdfTemplate({ profile, experiences, skills, education, languages }: CVPdfTemplateProps) {
   const groupedSkills = skills.reduce((acc, skill) => {
     if (!acc[skill.category]) {
       acc[skill.category] = [];
@@ -235,6 +250,18 @@ export function CVPdfTemplate({ profile, experiences, skills, education }: CVPdf
             );
           })}
         </View>
+        {/* Languages */}
+        {languages && languages.length > 0 && (
+          <View style={styles.section}>
+            <Text style={styles.sectionTitle}>Languages</Text>
+            {languages.map((lang, idx) => (
+              <View key={idx} style={styles.languageItem}>
+                <Text style={styles.languageName}>{lang.name}</Text>
+                <Text style={styles.languageLevel}>{lang.level}</Text>
+              </View>
+            ))}
+          </View>
+        )}
       </Page>
     </Document>
   );

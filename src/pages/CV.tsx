@@ -70,7 +70,7 @@ export default function CV() {
     
     setDownloadingPdf(true);
     try {
-      await generateCVPdf(profile, experiences, skills, education);
+      await generateCVPdf(profile, experiences, skills, education, languages);
     } catch (error) {
       console.error('Failed to download PDF:', error);
       alert('Failed to generate PDF. Please try again.');
@@ -130,8 +130,7 @@ export default function CV() {
 
         <div className="pt-2">
           <Button 
-            variant="outline" 
-            className="gap-2"
+            className="gap-2 bg-slate-500 text-white hover:bg-slate-400 dark:bg-slate-600 dark:hover:bg-slate-500"
             onClick={handleDownloadPdf}
             disabled={downloadingPdf}
           >
@@ -194,7 +193,7 @@ export default function CV() {
                     {exp.tags && exp.tags.length > 0 && (
                       <div className="flex flex-wrap gap-2 pt-2">
                         {exp.tags.map((tag, idx) => (
-                          <Badge key={idx} variant="outline" className="text-xs font-normal">
+                          <Badge key={idx} className="text-xs font-normal border-0 !bg-slate-200 !text-slate-700 dark:!bg-slate-600 dark:!text-slate-100">
                             {tag}
                           </Badge>
                         ))}
@@ -221,7 +220,7 @@ export default function CV() {
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {skillList.map((skillName, idx) => (
-                      <Badge key={idx} variant="outline" className="text-sm">
+                      <Badge key={idx} className="text-xs font-normal border-0 !bg-slate-200 !text-slate-700 dark:!bg-slate-600 dark:!text-slate-100">
                         {skillName}
                       </Badge>
                     ))}
@@ -242,7 +241,7 @@ export default function CV() {
                   : edu.startYear;
                 
                 return (
-                  <Card key={edu.id}>
+                  <Card key={edu.id} className="border-0 shadow-none">
                     <CardContent className="p-6">
                       {/* Description - First and most highlighted */}
                       {edu.description && (

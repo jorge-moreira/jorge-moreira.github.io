@@ -22,88 +22,103 @@ export default function Navbar() {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="sticky top-0 z-50 w-full border-b" style={{ backgroundColor: 'hsl(var(--color-background))' }}>
-      <div className="container mx-auto px-4">
-        <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <Link 
-            to="/" 
-            className="text-xl font-bold hover:opacity-80 transition-opacity"
-          >
-            jorge-moreira.dev
-          </Link>
+    <>
+      <nav className="sticky top-0 z-50 w-full shadow-sm dark:shadow backdrop-blur-md" style={{ backgroundColor: 'hsl(var(--color-navbar) / 0.85)' }}>
+        <div className="container mx-auto px-4">
+          <div className="flex h-16 items-center justify-between">
+            {/* Logo */}
+            <Link 
+              to="/" 
+              className="text-xl font-bold hover:opacity-80 transition-opacity"
+            >
+              jorge-moreira.dev
+            </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex md:items-center md:gap-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className={`text-sm font-medium nav-link transition-colors ${
-                  isActive(link.path)
-                    ? 'text-foreground'
-                    : 'text-muted-foreground'
-                }`}
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex md:items-center md:gap-6">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.path}
+                  to={link.path}
+                  className={`text-sm font-medium nav-link transition-colors ${
+                    isActive(link.path)
+                      ? 'text-foreground'
+                      : 'text-muted-foreground'
+                  }`}
+                >
+                  {link.name}
+                </Link>
+              ))}
+              
+              {/* Theme Toggle */}
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
               >
-                {link.name}
-              </Link>
-            ))}
-            
-            {/* Theme Toggle */}
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-            >
-              {effectiveTheme === 'dark' ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </Button>
-          </div>
+                {effectiveTheme === 'dark' ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </Button>
+            </div>
 
-          {/* Mobile Menu Button & Theme Toggle */}
-          <div className="flex items-center gap-2 md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-            >
-              {effectiveTheme === 'dark' ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
-            </Button>
-            
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
-            </Button>
+            {/* Mobile Menu Button & Theme Toggle */}
+            <div className="flex items-center gap-2 md:hidden">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={toggleTheme}
+                aria-label="Toggle theme"
+              >
+                {effectiveTheme === 'dark' ? (
+                  <Sun className="h-5 w-5" />
+                ) : (
+                  <Moon className="h-5 w-5" />
+                )}
+              </Button>
+              
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? (
+                  <X className="h-5 w-5" />
+                ) : (
+                  <Menu className="h-5 w-5" />
+                )}
+              </Button>
+            </div>
           </div>
         </div>
+      </nav>
 
-        {/* Mobile Navigation Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden border-t py-4">
-            <div className="flex flex-col space-y-3">
+      {/* Mobile overlay */}
+      {isMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 z-40 bg-background/60 backdrop-blur-sm md:hidden"
+            onClick={() => setIsMenuOpen(false)}
+          />
+
+          {/* Menu panel — fixed just below the navbar */}
+          <div
+            className="fixed top-16 left-0 right-0 z-50 md:hidden shadow-sm dark:shadow backdrop-blur-md"
+            style={{ backgroundColor: 'hsl(var(--color-navbar) / 0.85)' }}
+          >
+            <div className="border-t w-full" />
+            <div className="flex flex-col py-2 px-6">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`px-2 py-2 text-sm font-medium nav-link transition-colors ${
+                  className={`py-4 text-base font-medium nav-link transition-colors ${
                     isActive(link.path)
                       ? 'text-foreground'
                       : 'text-muted-foreground'
@@ -114,8 +129,8 @@ export default function Navbar() {
               ))}
             </div>
           </div>
-        )}
-      </div>
-    </nav>
+        </>
+      )}
+    </>
   );
 }

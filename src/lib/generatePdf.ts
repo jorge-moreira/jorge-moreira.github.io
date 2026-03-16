@@ -4,16 +4,18 @@ import type { Profile } from '@/models/Profile';
 import type { Experience } from '@/models/Experience';
 import type { Skill } from '@/models/Skill';
 import type { Education } from '@/models/Education';
+import type { Language } from '@/models/Language';
 
 export async function generateCVPdf(
   profile: Profile,
   experiences: Experience[],
   skills: Skill[],
-  education: Education[]
+  education: Education[],
+  languages: Language[]
 ): Promise<void> {
   try {
     const blob = await pdf(
-      CVPdfTemplate({ profile, experiences, skills, education })
+      CVPdfTemplate({ profile, experiences, skills, education, languages })
     ).toBlob();
 
     const url = URL.createObjectURL(blob);
