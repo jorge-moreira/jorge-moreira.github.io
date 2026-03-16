@@ -258,7 +258,7 @@ describe('Home', () => {
       renderHome();
 
       await waitFor(() => {
-        const projectsLink = screen.getByText('See Projects').closest('a');
+        const projectsLink = screen.getByText(/Check Projects/).closest('a');
         expect(projectsLink).toHaveAttribute('href', '/projects');
       });
     });
