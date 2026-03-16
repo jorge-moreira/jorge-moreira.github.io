@@ -38,14 +38,14 @@ describe('generatePdf', () => {
       company: 'Test Company',
       role: 'Developer',
       startDate: '2020',
-      endDate: null,
+      endDate: undefined,
       description: ['Test description'],
       tags: ['React'],
     },
   ];
 
   const mockSkills: Skill[] = [
-    { id: '1', name: 'React', category: 'Frontend' },
+    { name: 'React', category: 'Frontend' },
   ];
 
   const mockEducation: Education[] = [
@@ -55,7 +55,7 @@ describe('generatePdf', () => {
       degree: 'B.S. Computer Science',
       startYear: '2016',
       endYear: '2020',
-      description: null,
+      description: undefined,
     },
   ];
 
@@ -99,7 +99,7 @@ describe('generatePdf', () => {
 
       vi.mocked(ReactPdf.pdf).mockReturnValue(mockPdfInstance as any);
 
-      await generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation);
+      await generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation, []);
 
       expect(ReactPdf.pdf).toHaveBeenCalled();
       expect(mockPdfInstance.toBlob).toHaveBeenCalled();
@@ -112,7 +112,7 @@ describe('generatePdf', () => {
 
       vi.mocked(ReactPdf.pdf).mockReturnValue(mockPdfInstance as any);
 
-      await generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation);
+      await generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation, []);
 
       expect(createElementSpy).toHaveBeenCalledWith('a');
     });
@@ -141,7 +141,7 @@ describe('generatePdf', () => {
         return document.createElement(tag);
       });
 
-      await generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation);
+      await generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation, []);
 
       expect(capturedAnchor.download).toBe('John-Doe-CV.pdf');
     });
@@ -171,7 +171,7 @@ describe('generatePdf', () => {
         return document.createElement(tag);
       });
 
-      await generateCVPdf(profileWithSpaces, mockExperiences, mockSkills, mockEducation);
+      await generateCVPdf(profileWithSpaces, mockExperiences, mockSkills, mockEducation, []);
 
       expect(capturedAnchor.download).toBe('John-Michael-Doe-CV.pdf');
     });
@@ -183,7 +183,7 @@ describe('generatePdf', () => {
 
       vi.mocked(ReactPdf.pdf).mockReturnValue(mockPdfInstance as any);
 
-      await generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation);
+      await generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation, []);
 
       expect(createObjectURLSpy).toHaveBeenCalledWith(mockBlob);
       expect(revokeObjectURLSpy).toHaveBeenCalledWith(mockUrl);
@@ -213,7 +213,7 @@ describe('generatePdf', () => {
         return document.createElement(tag);
       });
 
-      await generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation);
+      await generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation, []);
 
       expect(capturedAnchor.click).toHaveBeenCalled();
     });
@@ -225,7 +225,7 @@ describe('generatePdf', () => {
 
       vi.mocked(ReactPdf.pdf).mockReturnValue(mockPdfInstance as any);
 
-      await generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation);
+      await generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation, []);
 
       expect(document.body.appendChild).toHaveBeenCalled();
       expect(document.body.removeChild).toHaveBeenCalled();
@@ -243,7 +243,7 @@ describe('generatePdf', () => {
       const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       await expect(
-        generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation)
+        generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation, [])
       ).rejects.toThrow('Failed to generate PDF. Please try again.');
 
       consoleSpy.mockRestore();
@@ -260,7 +260,7 @@ describe('generatePdf', () => {
       const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       try {
-        await generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation);
+        await generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation, []);
       } catch (error) {
         // Expected error
       }
@@ -280,7 +280,7 @@ describe('generatePdf', () => {
       const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
 
       await expect(
-        generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation)
+        generateCVPdf(mockProfile, mockExperiences, mockSkills, mockEducation, [])
       ).rejects.toThrow();
 
       consoleSpy.mockRestore();
@@ -296,7 +296,7 @@ describe('generatePdf', () => {
       vi.mocked(ReactPdf.pdf).mockReturnValue(mockPdfInstance as any);
 
       await expect(
-        generateCVPdf(mockProfile, [], mockSkills, mockEducation)
+        generateCVPdf(mockProfile, [], mockSkills, mockEducation, [])
       ).resolves.not.toThrow();
     });
 
@@ -308,7 +308,7 @@ describe('generatePdf', () => {
       vi.mocked(ReactPdf.pdf).mockReturnValue(mockPdfInstance as any);
 
       await expect(
-        generateCVPdf(mockProfile, mockExperiences, [], mockEducation)
+        generateCVPdf(mockProfile, mockExperiences, [], mockEducation, [])
       ).resolves.not.toThrow();
     });
 
@@ -320,7 +320,7 @@ describe('generatePdf', () => {
       vi.mocked(ReactPdf.pdf).mockReturnValue(mockPdfInstance as any);
 
       await expect(
-        generateCVPdf(mockProfile, mockExperiences, mockSkills, [])
+        generateCVPdf(mockProfile, mockExperiences, mockSkills, [], [])
       ).resolves.not.toThrow();
     });
   });

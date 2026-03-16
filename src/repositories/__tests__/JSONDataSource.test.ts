@@ -13,7 +13,7 @@ describe('JSONDataSource', () => {
   beforeEach(() => {
     dataSource = new JSONDataSource();
     fetchMock = vi.fn();
-    global.fetch = fetchMock;
+    globalThis.fetch = fetchMock;
   });
 
   afterEach(() => {
@@ -84,7 +84,7 @@ describe('JSONDataSource', () => {
           company: 'Tech Corp',
           role: 'Developer',
           startDate: '2020',
-          endDate: null,
+          endDate: undefined,
           description: ['Built features'],
           tags: ['React'],
         },
@@ -108,7 +108,7 @@ describe('JSONDataSource', () => {
           company: 'Company A',
           role: 'Senior Developer',
           startDate: '2020',
-          endDate: null,
+          endDate: undefined,
           description: ['Led team', 'Built features'],
           tags: ['React', 'TypeScript'],
         },
@@ -155,7 +155,7 @@ describe('JSONDataSource', () => {
   describe('getSkills', () => {
     it('should fetch skills data from correct endpoint', async () => {
       const mockSkills: Skill[] = [
-        { id: '1', name: 'React', category: 'Frontend' },
+        { name: 'React', category: 'Frontend' },
       ];
 
       fetchMock.mockResolvedValue({
@@ -171,10 +171,10 @@ describe('JSONDataSource', () => {
 
     it('should return array of skills with categories', async () => {
       const mockSkills: Skill[] = [
-        { id: '1', name: 'React', category: 'Frontend' },
-        { id: '2', name: 'TypeScript', category: 'Frontend' },
-        { id: '3', name: 'Node.js', category: 'Backend' },
-        { id: '4', name: 'PostgreSQL', category: 'Backend' },
+        { name: 'React', category: 'Frontend' },
+        { name: 'TypeScript', category: 'Frontend' },
+        { name: 'Node.js', category: 'Backend' },
+        { name: 'PostgreSQL', category: 'Backend' },
       ];
 
       fetchMock.mockResolvedValue({
@@ -216,7 +216,7 @@ describe('JSONDataSource', () => {
           degree: 'B.S. Computer Science',
           startYear: '2016',
           endYear: '2020',
-          description: null,
+          description: undefined,
         },
       ];
 
@@ -247,7 +247,7 @@ describe('JSONDataSource', () => {
           degree: 'Web Development',
           startYear: '2017',
           endYear: '2017',
-          description: null,
+          description: undefined,
         },
       ];
 
@@ -285,11 +285,10 @@ describe('JSONDataSource', () => {
       const mockProjects: Project[] = [
         {
           id: '1',
-          name: 'Test Project',
-          description: 'A test project',
-          technologies: ['React', 'TypeScript'],
-          url: 'https://example.com',
-          github: 'https://github.com/test/project',
+          title: 'Test Project',
+          purpose: 'A test project',
+          techStack: ['React', 'TypeScript'],
+          link: 'https://example.com',
         },
       ];
 
@@ -308,19 +307,17 @@ describe('JSONDataSource', () => {
       const mockProjects: Project[] = [
         {
           id: '1',
-          name: 'Project A',
-          description: 'Description A',
-          technologies: ['React'],
-          url: 'https://projecta.com',
-          github: 'https://github.com/user/projecta',
+          title: 'Project A',
+          purpose: 'Description A',
+          techStack: ['React'],
+          link: 'https://projecta.com',
         },
         {
           id: '2',
-          name: 'Project B',
-          description: 'Description B',
-          technologies: ['Node.js', 'Express'],
-          url: 'https://projectb.com',
-          github: 'https://github.com/user/projectb',
+          title: 'Project B',
+          purpose: 'Description B',
+          techStack: ['Node.js', 'Express'],
+          link: 'https://projectb.com',
         },
       ];
 
@@ -332,8 +329,8 @@ describe('JSONDataSource', () => {
       const result = await dataSource.getProjects();
 
       expect(result).toHaveLength(2);
-      expect(result[0].name).toBe('Project A');
-      expect(result[1].technologies).toContain('Node.js');
+      expect(result[0].title).toBe('Project A');
+      expect(result[1].techStack).toContain('Node.js');
     });
 
     it('should handle empty projects array', async () => {

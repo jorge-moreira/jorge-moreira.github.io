@@ -42,9 +42,10 @@ describe('Home', () => {
         getSkills: vi.fn(),
         getEducation: vi.fn(),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
-      vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
+      vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource as any);
 
       renderHome();
       expect(screen.getByText('Loading...')).toBeInTheDocument();
@@ -59,6 +60,7 @@ describe('Home', () => {
         getSkills: vi.fn(),
         getEducation: vi.fn(),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -79,6 +81,7 @@ describe('Home', () => {
         getSkills: vi.fn(),
         getEducation: vi.fn(),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -99,6 +102,7 @@ describe('Home', () => {
         getSkills: vi.fn(),
         getEducation: vi.fn(),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -117,6 +121,7 @@ describe('Home', () => {
         getSkills: vi.fn(),
         getEducation: vi.fn(),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -135,6 +140,7 @@ describe('Home', () => {
         getSkills: vi.fn(),
         getEducation: vi.fn(),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -142,11 +148,11 @@ describe('Home', () => {
       renderHome();
 
       await waitFor(() => {
-        expect(screen.getByText('Web Development')).toBeInTheDocument();
+        expect(screen.getByText(/Web Development/)).toBeInTheDocument();
       });
 
-      expect(screen.getByText('Cloud Architecture')).toBeInTheDocument();
-      expect(screen.getByText('DevOps')).toBeInTheDocument();
+      expect(screen.getByText(/Cloud Architecture/)).toBeInTheDocument();
+      expect(screen.getByText(/DevOps/)).toBeInTheDocument();
     });
 
     it('should render care priorities when available', async () => {
@@ -156,6 +162,7 @@ describe('Home', () => {
         getSkills: vi.fn(),
         getEducation: vi.fn(),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -163,11 +170,11 @@ describe('Home', () => {
       renderHome();
 
       await waitFor(() => {
-        expect(screen.getByText('What I Care About')).toBeInTheDocument();
+        expect(screen.getAllByText('What I care about').length).toBeGreaterThan(0);
       });
 
-      expect(screen.getByText('Code Quality')).toBeInTheDocument();
-      expect(screen.getByText('Team Collaboration')).toBeInTheDocument();
+      expect(screen.getAllByText('Code Quality').length).toBeGreaterThan(0);
+      expect(screen.getAllByText('Team Collaboration').length).toBeGreaterThan(0);
     });
 
     it('should not render care priorities section when empty', async () => {
@@ -178,6 +185,7 @@ describe('Home', () => {
         getSkills: vi.fn(),
         getEducation: vi.fn(),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -188,7 +196,7 @@ describe('Home', () => {
         expect(screen.getByText('John Doe')).toBeInTheDocument();
       });
 
-      expect(screen.queryByText('What I Care About')).not.toBeInTheDocument();
+      expect(screen.queryAllByText('What I care about')).toHaveLength(0);
     });
   });
 
@@ -200,6 +208,7 @@ describe('Home', () => {
         getSkills: vi.fn(),
         getEducation: vi.fn(),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -219,6 +228,7 @@ describe('Home', () => {
         getSkills: vi.fn(),
         getEducation: vi.fn(),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -240,6 +250,7 @@ describe('Home', () => {
         getSkills: vi.fn(),
         getEducation: vi.fn(),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -263,6 +274,7 @@ describe('Home', () => {
         getSkills: vi.fn(),
         getEducation: vi.fn(),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);

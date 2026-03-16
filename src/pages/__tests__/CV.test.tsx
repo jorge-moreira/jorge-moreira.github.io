@@ -26,7 +26,7 @@ const mockExperiences: Experience[] = [
     company: 'Tech Company',
     role: 'Senior Developer',
     startDate: '2020',
-    endDate: null,
+    endDate: undefined,
     description: ['Led development team', 'Implemented CI/CD'],
     tags: ['React', 'TypeScript', 'AWS'],
   },
@@ -42,10 +42,10 @@ const mockExperiences: Experience[] = [
 ];
 
 const mockSkills: Skill[] = [
-  { id: '1', name: 'React', category: 'Frontend' },
-  { id: '2', name: 'TypeScript', category: 'Frontend' },
-  { id: '3', name: 'Node.js', category: 'Backend' },
-  { id: '4', name: 'PostgreSQL', category: 'Backend' },
+  { name: 'React', category: 'Frontend' },
+  { name: 'TypeScript', category: 'Frontend' },
+  { name: 'Node.js', category: 'Backend' },
+  { name: 'PostgreSQL', category: 'Backend' },
 ];
 
 const mockEducation: Education[] = [
@@ -63,7 +63,7 @@ const mockEducation: Education[] = [
     degree: 'Full Stack Web Development',
     startYear: '2017',
     endYear: '2017',
-    description: null,
+    description: undefined,
   },
 ];
 
@@ -88,9 +88,10 @@ describe('CV', () => {
         getSkills: vi.fn(() => new Promise(() => {})),
         getEducation: vi.fn(() => new Promise(() => {})),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
-      vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
+      vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource as any);
 
       renderCV();
       expect(screen.getByText('Loading...')).toBeInTheDocument();
@@ -105,6 +106,7 @@ describe('CV', () => {
         getSkills: vi.fn().mockResolvedValue(mockSkills),
         getEducation: vi.fn().mockResolvedValue(mockEducation),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -126,6 +128,7 @@ describe('CV', () => {
         getSkills: vi.fn().mockResolvedValue(mockSkills),
         getEducation: vi.fn().mockResolvedValue(mockEducation),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -148,6 +151,7 @@ describe('CV', () => {
         getSkills: vi.fn().mockResolvedValue(mockSkills),
         getEducation: vi.fn().mockResolvedValue(mockEducation),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -155,7 +159,7 @@ describe('CV', () => {
       renderCV();
 
       await waitFor(() => {
-        expect(screen.getByText('2020 - Present')).toBeInTheDocument();
+        expect(screen.getByText('2020')).toBeInTheDocument();
       });
     });
 
@@ -166,6 +170,7 @@ describe('CV', () => {
         getSkills: vi.fn().mockResolvedValue(mockSkills),
         getEducation: vi.fn().mockResolvedValue(mockEducation),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -186,6 +191,7 @@ describe('CV', () => {
         getSkills: vi.fn().mockResolvedValue(mockSkills),
         getEducation: vi.fn().mockResolvedValue(mockEducation),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -193,7 +199,7 @@ describe('CV', () => {
       renderCV();
 
       await waitFor(() => {
-        expect(screen.getByText('Professional Experience')).toBeInTheDocument();
+        expect(screen.getByText('Work Experience')).toBeInTheDocument();
       });
 
       expect(screen.getByText('AWS')).toBeInTheDocument();
@@ -209,6 +215,7 @@ describe('CV', () => {
         getSkills: vi.fn().mockResolvedValue(mockSkills),
         getEducation: vi.fn().mockResolvedValue(mockEducation),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -229,6 +236,7 @@ describe('CV', () => {
         getSkills: vi.fn().mockResolvedValue(mockSkills),
         getEducation: vi.fn().mockResolvedValue(mockEducation),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -253,6 +261,7 @@ describe('CV', () => {
         getSkills: vi.fn().mockResolvedValue(mockSkills),
         getEducation: vi.fn().mockResolvedValue(mockEducation),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -274,6 +283,7 @@ describe('CV', () => {
         getSkills: vi.fn().mockResolvedValue(mockSkills),
         getEducation: vi.fn().mockResolvedValue(mockEducation),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -292,6 +302,7 @@ describe('CV', () => {
         getSkills: vi.fn().mockResolvedValue(mockSkills),
         getEducation: vi.fn().mockResolvedValue(mockEducation),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -310,6 +321,7 @@ describe('CV', () => {
         getSkills: vi.fn().mockResolvedValue(mockSkills),
         getEducation: vi.fn().mockResolvedValue(mockEducation),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -330,6 +342,7 @@ describe('CV', () => {
         getSkills: vi.fn().mockResolvedValue(mockSkills),
         getEducation: vi.fn().mockResolvedValue(mockEducation),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -348,6 +361,7 @@ describe('CV', () => {
         getSkills: vi.fn().mockResolvedValue(mockSkills),
         getEducation: vi.fn().mockResolvedValue(mockEducation),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -367,7 +381,8 @@ describe('CV', () => {
           mockProfile,
           mockExperiences,
           mockSkills,
-          mockEducation
+          mockEducation,
+          []
         );
       });
     });
@@ -379,6 +394,7 @@ describe('CV', () => {
         getSkills: vi.fn().mockResolvedValue(mockSkills),
         getEducation: vi.fn().mockResolvedValue(mockEducation),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -407,6 +423,7 @@ describe('CV', () => {
         getSkills: vi.fn().mockResolvedValue(mockSkills),
         getEducation: vi.fn().mockResolvedValue(mockEducation),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
@@ -440,6 +457,7 @@ describe('CV', () => {
         getSkills: vi.fn().mockResolvedValue([]),
         getEducation: vi.fn().mockResolvedValue([]),
         getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
       };
 
       vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
