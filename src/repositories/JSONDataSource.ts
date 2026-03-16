@@ -4,6 +4,7 @@ import type { Experience } from '@/models/Experience';
 import type { Skill } from '@/models/Skill';
 import type { Education } from '@/models/Education';
 import type { Project } from '@/models/Project';
+import type { Language } from '@/models/Language';
 
 export class JSONDataSource implements IDataSource {
   async getProfile(): Promise<Profile> {
@@ -28,6 +29,11 @@ export class JSONDataSource implements IDataSource {
 
   async getProjects(): Promise<Project[]> {
     const response = await fetch('/data/projects.json');
+    return response.json();
+  }
+
+  async getLanguages(): Promise<Language[]> {
+    const response = await fetch('/data/languages.json');
     return response.json();
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "Jorge Moreira",
-  "title": "Software Engineer @ Planet",
+  "title": "Senior Software Engineer @ Planet",
   "bio": [
     "I'm a Software Engineer with experience building scalable systems and leading technical initiatives.",
     "Currently working at Planet, I focus on delivering high-quality software solutions.",
@@ -8,7 +8,7 @@
   ],
   "photo": "/profile-photo.png",
   "location": "Porto, Portugal",
-  "currentRole": "Software Engineer @ Planet",
+  "currentRole": "Senior Software Engineer",
   "focusAreas": [
     "Software Engineering",
     "System Design",

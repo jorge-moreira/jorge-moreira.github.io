@@ -1,15 +1,15 @@
 [
   {
-    "name": "C#",
+    "name": ".NET/C#",
     "category": "Languages"
   },
   {
-    "name": "Docker",
-    "category": "Tools"
+    "name": "TypeScript",
+    "category": "Languages"
   },
   {
-    "name": "OpenAPI",
-    "category": "Tools"
+    "name": "JavaScript",
+    "category": "Languages"
   },
   {
     "name": "SQL",
@@ -20,12 +20,8 @@
     "category": "Languages"
   },
   {
-    "name": "Jenkins",
-    "category": "Tools"
-  },
-  {
-    "name": "Git",
-    "category": "Tools"
+    "name": "GraphQL",
+    "category": "Languages"
   },
   {
     "name": "TDD",
@@ -34,5 +30,57 @@
   {
     "name": "DDD",
     "category": "Methodologies"
+  },
+  {
+    "name": "BDD",
+    "category": "Methodologies"
+  },
+  {
+    "name": "Scrum",
+    "category": "Methodologies"
+  },
+  {
+    "name": "Kanban",
+    "category": "Methodologies"
+  },
+  {
+    "name": "MongoDB",
+    "category": "TBD"
+  },
+  {
+    "name": "MongoDB Aggregation Pipelines",
+    "category": "TBD"
+  },
+  {
+    "name": "CI/CD (GitHub Actions & Jenkins)",
+    "category": "Cloud & Platform"
+  },
+  {
+    "name": "Kubernetes/EKS",
+    "category": "Cloud & Platform"
+  },
+  {
+    "name": "Kong",
+    "category": "Cloud & Platform"
+  },
+  {
+    "name": "Docker",
+    "category": "Cloud & Platform"
+  },
+  {
+    "name": "OpenAPI",
+    "category": "Cloud & Platform"
+  },
+  {
+    "name": "Auth0",
+    "category": "Identity"
+  },
+  {
+    "name": "OAuth2/OIDC",
+    "category": "Identity"
+  },
+  {
+    "name": "IAM",
+    "category": "Identity"
   }
 ]

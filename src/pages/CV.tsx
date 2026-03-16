@@ -4,6 +4,7 @@ import type { Profile } from '@/models/Profile';
 import type { Experience } from '@/models/Experience';
 import type { Skill } from '@/models/Skill';
 import type { Education } from '@/models/Education';
+import type { Language } from '@/models/Language';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent } from '@/components/ui/card';
@@ -33,6 +34,7 @@ export default function CV() {
   const [experiences, setExperiences] = useState<Experience[]>([]);
   const [skills, setSkills] = useState<Skill[]>([]);
   const [education, setEducation] = useState<Education[]>([]);
+  const [languages, setLanguages] = useState<Language[]>([]);
   const [loading, setLoading] = useState(true);
   const [downloadingPdf, setDownloadingPdf] = useState(false);
 
@@ -40,17 +42,19 @@ export default function CV() {
     const fetchData = async () => {
       try {
         const dataSource = getDataSource();
-        const [profileData, experiencesData, skillsData, educationData] = await Promise.all([
+        const [profileData, experiencesData, skillsData, educationData, languagesData] = await Promise.all([
           dataSource.getProfile(),
           dataSource.getExperiences(),
           dataSource.getSkills(),
-          dataSource.getEducation()
+          dataSource.getEducation(),
+          dataSource.getLanguages()
         ]);
         
         setProfile(profileData);
         setExperiences(experiencesData);
         setSkills(skillsData);
         setEducation(educationData);
+        setLanguages(languagesData);
       } catch (error) {
         console.error('Error fetching CV data:', error);
       } finally {
@@ -267,6 +271,21 @@ export default function CV() {
               })}
             </div>
           </section>
+
+          {/* Languages Section */}
+          {languages.length > 0 && (
+            <section>
+              <h2 className="text-3xl md:text-4xl font-bold mb-8 md:mb-12">Languages</h2>
+              <div className="space-y-3">
+                {languages.map((lang) => (
+                  <div key={lang.name} className="flex items-center justify-between">
+                    <span className="text-base font-medium">{lang.name}</span>
+                    <span className="text-sm text-gray-400">{lang.level}</span>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
         </aside>
       </div>
     </div>
