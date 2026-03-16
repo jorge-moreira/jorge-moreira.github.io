@@ -7,7 +7,15 @@ import type { Education } from '@/models/Education';
 import type { Language } from '@/models/Language';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+import { ChevronDown } from 'lucide-react';
 import { generateCVPdf } from '@/lib/generatePdf';
+import { generateAtsResume } from '@/lib/generateAtsResume';
 import { Timeline, TimelineItem } from '@/components/Timeline';
 
 // Color palette for company dots
@@ -36,6 +44,7 @@ export default function CV() {
   const [languages, setLanguages] = useState<Language[]>([]);
   const [loading, setLoading] = useState(true);
   const [downloadingPdf, setDownloadingPdf] = useState(false);
+  const [downloadingAts, setDownloadingAts] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -75,6 +84,20 @@ export default function CV() {
       alert('Failed to generate PDF. Please try again.');
     } finally {
       setDownloadingPdf(false);
+    }
+  };
+
+  const handleDownloadAts = async () => {
+    if (!profile) return;
+
+    setDownloadingAts(true);
+    try {
+      await generateAtsResume(profile, experiences, skills, education, languages);
+    } catch (error) {
+      console.error('Failed to download ATS resume:', error);
+      alert('Failed to generate ATS resume. Please try again.');
+    } finally {
+      setDownloadingAts(false);
     }
   };
 
@@ -128,36 +151,60 @@ export default function CV() {
         </div>
 
         <div className="pt-2">
-          <Button 
-            className="gap-2 bg-slate-500 text-white hover:bg-slate-400 dark:bg-slate-600 dark:hover:bg-slate-500"
-            onClick={handleDownloadPdf}
-            disabled={downloadingPdf}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-4 h-4"
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                className="gap-2 bg-slate-500 text-white hover:bg-slate-400 dark:bg-slate-600 dark:hover:bg-slate-500"
+                disabled={downloadingPdf || downloadingAts}
+                aria-label="Download options"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-4 h-4"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                  />
+                </svg>
+                {downloadingPdf || downloadingAts ? 'Generating...' : 'Download'}
+                <ChevronDown className="w-4 h-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent
+              align="start"
+              className="bg-slate-400 dark:bg-slate-500 border-slate-400 dark:border-slate-500 p-0 min-w-[var(--radix-dropdown-menu-trigger-width)]"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
-              />
-            </svg>
-            {downloadingPdf ? 'Generating PDF...' : 'Download PDF'}
-          </Button>
+              <DropdownMenuItem
+                onClick={handleDownloadPdf}
+                disabled={downloadingPdf || downloadingAts}
+                className="text-white focus:bg-slate-500 dark:focus:bg-slate-600 cursor-pointer rounded-none pl-4"
+              >
+                PDF
+              </DropdownMenuItem>
+              <DropdownMenuItem
+                onClick={handleDownloadAts}
+                disabled={downloadingPdf || downloadingAts}
+                className="text-white focus:bg-slate-500 dark:focus:bg-slate-600 cursor-pointer rounded-none pl-4"
+              >
+                ATS friendly
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </header>
 
       {/* Main Content - Two Column Layout on Desktop */}
       <div className="grid lg:grid-cols-[2fr_1fr] gap-12 lg:gap-24">
-        {/* Left Column: Work Experience */}
+        {/* Left Column: Professional Experience */}
         <section>
           <h2 className="text-3xl md:text-4xl font-normal mb-8 md:mb-12">
-            Work Experience
+            Professional Experience
           </h2>
           
           <Timeline>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Mail, Github, Linkedin } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 import { getDataSource } from "@/repositories/DataSourceFactory";
 import type { Profile } from "@/models/Profile";
 
@@ -139,7 +140,7 @@ export default function Home() {
           </div>
 
           {/* Separator */}
-          <div className="border-t w-full" />
+          <Separator className="bg-slate-300 dark:bg-slate-600"/>
 
           {/* What I Care About */}
           {profile.carePriorities && profile.carePriorities.length > 0 && (

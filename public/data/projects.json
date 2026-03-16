@@ -2,7 +2,7 @@
   {
     "id": "1",
     "title": "Personal Portfolio",
-    "purpose": "Modern portfolio website built as a SPA with routing, a CV page with PDF export, a projects showcase, and a contact form. Designed with a clean, responsive layout and dark/light theme support.",
+    "purpose": "Modern portfolio website built as a SPA with routing, a CV page with PDF and ATS export and a projects showcase. Designed with a clean, responsive layout and dark/light theme support.",
     "techStack": [
       "React",
       "TypeScript",
@@ -16,7 +16,7 @@
   {
     "id": "2",
     "title": "Payment Switch Modernisation",
-    "purpose": "Contributed to the ongoing modernisation of a distributed payment switch — including velocity rules, transaction processing logic, and extraction of standalone microservices from the existing monolith. Maintained and evolved a shared NuGet package ecosystem covering cryptography, caching, messaging, audit logging, and Windows service management used across the platform.",
+    "purpose": "Contributed to the ongoing modernisation of a distributed payment switch — including transaction processing logic, risk rule processing, and service modularisation. Maintained and evolved a shared NuGet package ecosystem covering cryptography, caching, messaging, audit logging, and Windows service management used across the platform.",
     "techStack": [
       "C#",
       ".NET Framework 4.8.2",

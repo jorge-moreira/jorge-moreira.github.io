@@ -1,9 +1,11 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import { render, screen, waitFor, fireEvent } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { BrowserRouter } from 'react-router-dom';
 import CV from '../CV';
 import * as DataSourceFactory from '@/repositories/DataSourceFactory';
 import * as GeneratePdf from '@/lib/generatePdf';
+import * as GenerateAts from '@/lib/generateAtsResume';
 import type { Profile } from '@/models/Profile';
 import type { Experience } from '@/models/Experience';
 import type { Skill } from '@/models/Skill';
@@ -199,7 +201,7 @@ describe('CV', () => {
       renderCV();
 
       await waitFor(() => {
-        expect(screen.getByText('Work Experience')).toBeInTheDocument();
+        expect(screen.getByText('Professional Experience')).toBeInTheDocument();
       });
 
       expect(screen.getByText('AWS')).toBeInTheDocument();
@@ -335,7 +337,7 @@ describe('CV', () => {
   });
 
   describe('PDF Download', () => {
-    it('should render download PDF button', async () => {
+    it('should render download button', async () => {
       const mockDataSource = {
         getProfile: vi.fn().mockResolvedValue(mockProfile),
         getExperiences: vi.fn().mockResolvedValue(mockExperiences),
@@ -350,11 +352,12 @@ describe('CV', () => {
       renderCV();
 
       await waitFor(() => {
-        expect(screen.getByText('Download PDF')).toBeInTheDocument();
+        expect(screen.getByText('Download')).toBeInTheDocument();
       });
     });
 
-    it('should call generateCVPdf when clicking download button', async () => {
+    it('should call generateCVPdf when clicking PDF option', async () => {
+      const user = userEvent.setup();
       const mockDataSource = {
         getProfile: vi.fn().mockResolvedValue(mockProfile),
         getExperiences: vi.fn().mockResolvedValue(mockExperiences),
@@ -370,11 +373,16 @@ describe('CV', () => {
       renderCV();
 
       await waitFor(() => {
-        expect(screen.getByText('Download PDF')).toBeInTheDocument();
+        expect(screen.getByLabelText('Download options')).toBeInTheDocument();
       });
 
-      const downloadButton = screen.getByText('Download PDF');
-      fireEvent.click(downloadButton);
+      await user.click(screen.getByLabelText('Download options'));
+
+      await waitFor(() => {
+        expect(screen.getByText('PDF')).toBeInTheDocument();
+      });
+
+      await user.click(screen.getByText('PDF'));
 
       await waitFor(() => {
         expect(generatePdfSpy).toHaveBeenCalledWith(
@@ -387,7 +395,8 @@ describe('CV', () => {
       });
     });
 
-    it('should show generating state when downloading PDF', async () => {
+    it('should show generating state when downloading', async () => {
+      const user = userEvent.setup();
       const mockDataSource = {
         getProfile: vi.fn().mockResolvedValue(mockProfile),
         getExperiences: vi.fn().mockResolvedValue(mockExperiences),
@@ -405,18 +414,24 @@ describe('CV', () => {
       renderCV();
 
       await waitFor(() => {
-        expect(screen.getByText('Download PDF')).toBeInTheDocument();
+        expect(screen.getByLabelText('Download options')).toBeInTheDocument();
       });
 
-      const downloadButton = screen.getByText('Download PDF');
-      fireEvent.click(downloadButton);
+      await user.click(screen.getByLabelText('Download options'));
 
       await waitFor(() => {
-        expect(screen.getByText('Generating PDF...')).toBeInTheDocument();
+        expect(screen.getByText('PDF')).toBeInTheDocument();
+      });
+
+      await user.click(screen.getByText('PDF'));
+
+      await waitFor(() => {
+        expect(screen.getByText('Generating...')).toBeInTheDocument();
       });
     });
 
     it('should handle PDF generation error', async () => {
+      const user = userEvent.setup();
       const mockDataSource = {
         getProfile: vi.fn().mockResolvedValue(mockProfile),
         getExperiences: vi.fn().mockResolvedValue(mockExperiences),
@@ -434,11 +449,16 @@ describe('CV', () => {
       renderCV();
 
       await waitFor(() => {
-        expect(screen.getByText('Download PDF')).toBeInTheDocument();
+        expect(screen.getByLabelText('Download options')).toBeInTheDocument();
       });
 
-      const downloadButton = screen.getByText('Download PDF');
-      fireEvent.click(downloadButton);
+      await user.click(screen.getByLabelText('Download options'));
+
+      await waitFor(() => {
+        expect(screen.getByText('PDF')).toBeInTheDocument();
+      });
+
+      await user.click(screen.getByText('PDF'));
 
       await waitFor(() => {
         expect(alertSpy).toHaveBeenCalledWith('Failed to generate PDF. Please try again.');
@@ -446,6 +466,66 @@ describe('CV', () => {
 
       alertSpy.mockRestore();
       consoleSpy.mockRestore();
+    });
+  });
+
+  describe('ATS Download', () => {
+    it('should render the download options chevron button', async () => {
+      const mockDataSource = {
+        getProfile: vi.fn().mockResolvedValue(mockProfile),
+        getExperiences: vi.fn().mockResolvedValue(mockExperiences),
+        getSkills: vi.fn().mockResolvedValue(mockSkills),
+        getEducation: vi.fn().mockResolvedValue(mockEducation),
+        getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
+      };
+
+      vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
+
+      renderCV();
+
+      await waitFor(() => {
+        expect(screen.getByLabelText('Download options')).toBeInTheDocument();
+      });
+    });
+
+    it('should call generateAtsResume when clicking ATS Resume option', async () => {
+      const user = userEvent.setup();
+      const mockDataSource = {
+        getProfile: vi.fn().mockResolvedValue(mockProfile),
+        getExperiences: vi.fn().mockResolvedValue(mockExperiences),
+        getSkills: vi.fn().mockResolvedValue(mockSkills),
+        getEducation: vi.fn().mockResolvedValue(mockEducation),
+        getProjects: vi.fn(),
+        getLanguages: vi.fn().mockResolvedValue([]),
+      };
+
+      vi.spyOn(DataSourceFactory, 'getDataSource').mockReturnValue(mockDataSource);
+      const generateAtsSpy = vi.spyOn(GenerateAts, 'generateAtsResume').mockResolvedValue();
+
+      renderCV();
+
+      await waitFor(() => {
+        expect(screen.getByLabelText('Download options')).toBeInTheDocument();
+      });
+
+      await user.click(screen.getByLabelText('Download options'));
+
+      await waitFor(() => {
+        expect(screen.getByText('ATS friendly')).toBeInTheDocument();
+      });
+
+      await user.click(screen.getByText('ATS friendly'));
+
+      await waitFor(() => {
+        expect(generateAtsSpy).toHaveBeenCalledWith(
+          mockProfile,
+          mockExperiences,
+          mockSkills,
+          mockEducation,
+          []
+        );
+      });
     });
   });
 

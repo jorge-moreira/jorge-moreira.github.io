@@ -5,13 +5,26 @@
     "role": "Senior Software Engineer",
     "startDate": "2023",
     "endDate": null,
+    "techStack": [
+      "ASP.NET Core", "MongoDB", "Apache Kafka", "OpenTelemetry",
+      "Kubernetes", "Helm", "ArgoCD"
+    ],
     "description": [
-      "Worked as Senior Software Engineer at Planet",
-      "Key responsibilities and achievements to be detailed",
-      "Technologies and methodologies used"
+      "Working as Senior Software Engineer in a fintech environment, contributing to a cloud-native payment processing platform built on a distributed microservices architecture",
+      "Core contributor to payment processing services covering terminal lifecycle management, transaction operations, payment actions (tokenization, refund), merchant hierarchy authorization, and resilience policy implementation",
+      "Built and maintained an event-driven service processing Kafka events across the full payment lifecycle — request handling, funding events, history timeline construction, currency conversion, and out-of-order event resolution",
+      "Developed a report scheduling service supporting one-off and recurring executions, with email delivery, downloadable artifact generation, and schedule lifecycle management",
+      "Contributed to the adoption of OpenTelemetry observability across multiple services — the API gateway, payment processing, event handling, and reporting",
+      "Built an internal code generation tool to auto-generate C# database objects from MongoDB JSON Schema specifications",
+      "Contributed to a distributed payment switch system — implementing payment message protocol handling improvements, transaction risk rule processing, ISO 8583 protocol message mapping, and service reliability monitoring",
+      "Maintained and evolved a shared NuGet package ecosystem used across the legacy platform, covering cryptography, caching, messaging, audit logging, system settings, and Windows service management"
     ],
     "tags": [
-      "Engineering",
+      "Microservices",
+      "Payments",
+      "Event-Driven Architecture",
+      "Observability",
+      "GitOps",
       "Mentorship"
     ]
   },
@@ -21,21 +34,18 @@
     "role": "Software Engineer",
     "startDate": "2019",
     "endDate": "2023",
+    "techStack": [
+      ".NET Framework 4.7.2", "ASP.NET Core", "Microsoft SQL Server",
+      "MongoDB", "Apache Kafka", "ElasticSearch", "React Native", "Kong"
+    ],
     "description": [
-      "Worked alongside the UI software engineers to develop React components to the order processig portal module",
+      "Worked alongside the UI software engineers to develop React components to the order processing portal module",
       "Joined a new team that owned a readmodel services that handled customer and order information that was also integrated with Salesforce",
       "Worked on multiple microservices that handled courier integration within the platform (DHL, UPS, FedEx)",
       "Joined the API Champions group that provided guidance and validated cross-team API-first designs, having a close contact with the platform architecture team",
       "Contributed to the CI/CD setup of the new microservices created by the team (Jenkins Declarative Pipelines)",
       "Contributed to internal cross-company frameworks",
-      "Mentored and onboarded team newcomers",
-      ".NET Framework 4.7.2",
-      "ASP.NET Core",
-      "Microsoft SQL Server",
-      "MongoDB",
-      "Apache Kafka",
-      "ElasticSearch",
-      "React Native"
+      "Mentored and onboarded team newcomers"
     ],
     "tags": [
       "Portal",
@@ -57,15 +67,12 @@
     "role": "Junior Software Engineer",
     "startDate": "2018",
     "endDate": "2019",
+    "techStack": [".NET Framework 4.6.2", "Microsoft SQL Server", "RabbitMQ", "Apache Kafka"],
     "description": [
       "Kept working on the previous team that I've been assigned on the Plug-in Programme",
       "Took more responsibilities within the team, handling more tasks and also been assigned to handle releases",
-      "Later was asigned to be part of the on-call schedule and I've handled and documented production incidents that occured during on-call",
-      "Worked also on a product, within the team ownership, that was a portal module that had dashboards which displayed merchant KPIs",
-      ".NET Framework 4.6.2",
-      "Microsoft SQL Server",
-      "RabbitMQ",
-      "Apache Kafka"
+      "Later was assigned to be part of the on-call schedule and handled and documented production incidents",
+      "Worked also on a product, within the team ownership, that was a portal module that had dashboards which displayed merchant KPIs"
     ],
     "tags": [
       "Portal",
@@ -81,12 +88,11 @@
     "role": "Trainee",
     "startDate": "2017",
     "endDate": "2018",
+    "techStack": [".NET Framework 4.6.2", "Microsoft SQL Server"],
     "description": [
-      "Plug-in Programme where recent graduated students where selected based on multiple interview rounds",
+      "Plug-in Programme where recent graduated students were selected based on multiple interview rounds",
       "Had intensive onboarding weeks to introduce new joiners to tools and industry best practices",
-      "Been part of a team that developed a portal module focused on the merchant orders processing",
-      ".NET Framework 4.6.2",
-      "Microsoft SQL Server"
+      "Been part of a team that developed a portal module focused on the merchant orders processing"
     ],
     "tags": [
       "Portal",
@@ -100,11 +106,11 @@
     "role": "Internship",
     "startDate": "2017",
     "endDate": "2017",
+    "techStack": [".NET Framework 4.6.2", "Microsoft SQL Server", "PowerApps"],
     "description": [
       "Bachelor Internship",
       "Built an enterprise expenses app using PowerApps",
-      "Built an expenses reporting backoffice with categorization and manager approval connected to the app",
-      ".NET Framework 4.6.2 & Microsoft SQL Server"
+      "Built an expenses reporting backoffice with categorization and manager approval connected to the app"
     ],
     "tags": [
       "PowerApps",
