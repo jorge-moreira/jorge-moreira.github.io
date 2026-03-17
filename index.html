@@ -18,6 +18,20 @@
     <meta property="og:url" content="https://jorge-moreira.dev" />
   </head>
   <body>
+    <script>
+      // Decode path restored by 404.html redirect
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var path = params.get('p');
+        if (path) {
+          var hash = params.get('h') || '';
+          params.delete('p');
+          params.delete('h');
+          var qs = params.toString() ? '?' + params.toString() : '';
+          window.history.replaceState(null, null, path + qs + hash);
+        }
+      })();
+    </script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script data-goatcounter="https://jorge-moreira.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
