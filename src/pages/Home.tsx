@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Mail, Github, Linkedin, FileText, FolderGit2 } from "lucide-react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Icons } from '@/lib/icons';
 import { Separator } from "@/components/ui/separator";
 import { getDataSource } from "@/repositories/DataSourceFactory";
 import type { Profile } from "@/models/Profile";
@@ -45,9 +46,9 @@ export default function Home() {
   }
 
   const socialIcons = {
-    mail: Mail,
-    github: Github,
-    linkedin: Linkedin,
+    mail: Icons.Mail,
+    github: Icons.Github,
+    linkedin: Icons.Linkedin,
   };
 
   return (
@@ -84,21 +85,23 @@ export default function Home() {
               to="/cv"
               className="inline-flex items-center justify-center px-6 py-2.5 rounded-md text-base font-normal transition-colors bg-slate-900 text-white hover:bg-slate-700 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-slate-100"
             >
-              <FileText className="h-4 w-4 mr-2"/> View CV
+              <FontAwesomeIcon icon={Icons.File} className="!h-4 !w-4 !mr-2" /> View CV
             </Link>
             <Link
               to="/projects"
               className="inline-flex items-center justify-center px-6 py-2.5 rounded-md text-base font-normal transition-colors bg-slate-500 text-white hover:bg-slate-400 dark:bg-slate-600 dark:hover:bg-slate-500"
             >
-              <FolderGit2 className="h-4 w-4 mr-2"/>Check Projects
+              <FontAwesomeIcon icon={Icons.Branch} className="!h-4 !w-4 !mr-2" />Check Projects
             </Link>
           </div>
 
           {/* Social Links */}
           <div className="flex flex-wrap gap-5">
             {profile.social.map((link) => {
-              const Icon = socialIcons[link.icon as keyof typeof socialIcons];
-              return Icon ? (
+              // Look up the icon object from your socialIcons mapping
+              const iconData = socialIcons[link.icon as keyof typeof socialIcons];
+
+              return iconData ? (
                 <a
                   key={link.platform}
                   href={link.url}
@@ -107,7 +110,7 @@ export default function Home() {
                   className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground social-icon transition-colors"
                   aria-label={link.platform}
                 >
-                  <Icon className="h-5 w-5" />
+                  <FontAwesomeIcon icon={iconData} className="!h-5 !w-5" />
                 </a>
               ) : null;
             })}
@@ -155,7 +158,7 @@ export default function Home() {
           </div>
 
           {/* Separator */}
-          <Separator className="bg-slate-300 dark:bg-slate-600"/>
+          <Separator className="bg-slate-300 dark:bg-slate-600" />
 
           {/* Beyond the keyboard */}
           {profile.interests && profile.interests.length > 0 && (

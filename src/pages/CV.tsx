@@ -13,7 +13,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { ChevronDown } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Icons } from '@/lib/icons';
 import { generateCVPdf } from '@/lib/generatePdf';
 import { generateAtsResume } from '@/lib/generateAtsResume';
 import { Timeline, TimelineItem } from '@/components/Timeline';
@@ -173,7 +174,7 @@ export default function CV() {
                   />
                 </svg>
                 {downloadingPdf || downloadingAts ? 'Generating...' : 'Download'}
-                <ChevronDown className="w-4 h-4" />
+                <FontAwesomeIcon icon={Icons.ChevronDown} className="!w-4 !h-4" />
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent
