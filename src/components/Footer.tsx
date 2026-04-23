@@ -1,4 +1,5 @@
-import { Github, Linkedin } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Icons } from '../lib/icons';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -19,7 +20,7 @@ export default function Footer() {
               className="social-icon transition-colors"
               aria-label="LinkedIn"
             >
-              <Linkedin className="h-5 w-5" />
+              <FontAwesomeIcon icon={Icons.Linkedin} className="!h-6 !w-6" />
             </a>
             <a 
               href="https://github.com/Jorge-Moreira" 
@@ -28,7 +29,7 @@ export default function Footer() {
               className="social-icon transition-colors"
               aria-label="GitHub"
             >
-              <Github className="h-5 w-5" />
+              <FontAwesomeIcon icon={Icons.Github}  className="!h-6 !w-6" />
             </a>
           </div>
         </div>
