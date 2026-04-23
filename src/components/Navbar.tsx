@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Moon, Sun, Menu, X } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Icons } from '@/lib/icons';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/hooks/useTheme';
 
@@ -27,8 +28,8 @@ export default function Navbar() {
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
-            <Link 
-              to="/" 
+            <Link
+              to="/"
               className="text-xl font-normal hover:opacity-80 transition-opacity"
             >
               jorge-moreira.dev
@@ -40,16 +41,15 @@ export default function Navbar() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`text-sm font-medium nav-link transition-colors ${
-                    isActive(link.path)
-                      ? 'text-foreground'
-                      : 'text-muted-foreground'
-                  }`}
+                  className={`text-sm font-medium nav-link transition-colors ${isActive(link.path)
+                    ? 'text-foreground'
+                    : 'text-muted-foreground'
+                    }`}
                 >
                   {link.name}
                 </Link>
               ))}
-              
+
               {/* Theme Toggle */}
               <Button
                 variant="ghost"
@@ -58,9 +58,9 @@ export default function Navbar() {
                 aria-label="Toggle theme"
               >
                 {effectiveTheme === 'dark' ? (
-                  <Sun className="h-5 w-5" />
+                  <FontAwesomeIcon icon={Icons.Sun} />
                 ) : (
-                  <Moon className="h-5 w-5" />
+                  <FontAwesomeIcon icon={Icons.Moon} />
                 )}
               </Button>
             </div>
@@ -74,12 +74,12 @@ export default function Navbar() {
                 aria-label="Toggle theme"
               >
                 {effectiveTheme === 'dark' ? (
-                  <Sun className="h-5 w-5" />
+                  <FontAwesomeIcon icon={Icons.Sun} />
                 ) : (
-                  <Moon className="h-5 w-5" />
+                  <FontAwesomeIcon icon={Icons.Moon} />
                 )}
               </Button>
-              
+
               <Button
                 variant="ghost"
                 size="icon"
@@ -87,9 +87,9 @@ export default function Navbar() {
                 aria-label="Toggle menu"
               >
                 {isMenuOpen ? (
-                  <X className="h-5 w-5" />
+                  <FontAwesomeIcon icon={Icons.Close} className="!h-5 !w-5" />
                 ) : (
-                  <Menu className="h-5 w-5" />
+                  <FontAwesomeIcon icon={Icons.Menu} className="!h-5 !w-5" />
                 )}
               </Button>
             </div>
@@ -118,11 +118,10 @@ export default function Navbar() {
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`py-4 text-base font-medium nav-link transition-colors ${
-                    isActive(link.path)
-                      ? 'text-foreground'
-                      : 'text-muted-foreground'
-                  }`}
+                  className={`py-4 text-base font-medium nav-link transition-colors ${isActive(link.path)
+                    ? 'text-foreground'
+                    : 'text-muted-foreground'
+                    }`}
                 >
                   {link.name}
                 </Link>
