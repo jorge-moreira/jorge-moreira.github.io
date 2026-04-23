@@ -94,7 +94,7 @@ describe('Navbar', () => {
       localStorage.setItem('theme', 'light');
       renderNavbar();
       
-      const moonIcons = document.querySelectorAll('[class*="lucide-moon"]');
+      const moonIcons = document.querySelectorAll('[class*="fa-moon"]');
       expect(moonIcons.length).toBeGreaterThan(0);
     });
   });
