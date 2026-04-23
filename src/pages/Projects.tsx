@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { ExternalLink } from "lucide-react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Icons } from '@/lib/icons';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { getDataSource } from "@/repositories/DataSourceFactory";
@@ -61,7 +62,7 @@ export default function Projects() {
                   <div className="flex items-start justify-between gap-4">
                     <CardTitle className="text-xl">{project.title}</CardTitle>
                     {project.link && (
-                      <ExternalLink className="h-4 w-4 shrink-0 mt-1 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <FontAwesomeIcon icon={Icons.ExternalLink} className="!h-4 !w-4 shrink-0 mt-1 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
                     )}
                   </div>
                   {project.company && (

@@ -1,13 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Mail, Linkedin, Github, ExternalLink } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Icons } from '@/lib/icons';
 import { Card, CardContent } from '@/components/ui/card';
 import { getDataSource } from '@/repositories/DataSourceFactory';
 import type { Profile, SocialLink } from '@/models/Profile';
 
 const iconMap = {
-  mail: Mail,
-  linkedin: Linkedin,
-  github: Github,
+  mail: Icons.Mail,
+  linkedin: Icons.Linkedin,
+  github: Icons.Github,
 };
 
 export default function Contact() {
@@ -52,7 +53,7 @@ export default function Contact() {
 
   const getIcon = (platform: string) => {
     const key = platform.toLowerCase() as keyof typeof iconMap;
-    const Icon = iconMap[key] || ExternalLink;
+    const Icon = iconMap[key] || Icons.ExternalLink;
     return Icon;
   };
 
@@ -66,7 +67,6 @@ export default function Contact() {
       {/* Social Links */}
       <div className="space-y-4">
         {profile?.social.map((link, index) => {
-          const Icon = getIcon(link.icon);
           const isMailto = link.url.startsWith('mailto:');
 
           return (
@@ -81,8 +81,9 @@ export default function Contact() {
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <Icon className="w-6 h-6 text-primary" />
+                      <FontAwesomeIcon icon={getIcon(link.icon)} className="!w-6 !h-6 text-primary" />
                     </div>
+
                     <div className="flex-1 min-w-0">
                       <div className="font-semibold text-lg mb-1 capitalize">
                         {link.platform}
@@ -91,7 +92,11 @@ export default function Contact() {
                         {getSocialValue(link)}
                       </div>
                     </div>
-                    <ExternalLink className="w-4 h-4 text-muted-foreground flex-shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                    <FontAwesomeIcon
+                      icon={Icons.ExternalLink}
+                      className="w-4 h-4 text-muted-foreground flex-shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                    />
                   </div>
                 </CardContent>
               </Card>
