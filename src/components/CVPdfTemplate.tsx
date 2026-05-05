@@ -62,11 +62,14 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   contacts: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    gap: 12,
+    flexDirection: 'column',
+    gap: 3,
     fontSize: 9,
     color: MUTED_FG,
+  },
+  contactsRow: {
+    flexDirection: 'row',
+    gap: 12,
   },
   contactLink: {
     fontSize: 9,
@@ -249,9 +252,11 @@ export function CVPdfTemplate({ profile, experiences, skills, education, languag
             <Text style={styles.jobTitle}>{profile.title}</Text>
             <View style={styles.contacts}>
               {profile.location && <Text style={styles.contactLink}>{profile.location}</Text>}
-              {email && <Link src={`mailto:${email}`} style={styles.contactLink}>{email}</Link>}
-              {linkedin && <Link src={`https://${linkedin}`} style={styles.contactLink}>{linkedin}</Link>}
-              {github && <Link src={`https://${github}`} style={styles.contactLink}>{github}</Link>}
+              <View style={styles.contactsRow}>
+                {email && <Link src={`mailto:${email}`} style={styles.contactLink}>{email}</Link>}
+                {linkedin && <Link src={`https://${linkedin}`} style={styles.contactLink}>{linkedin}</Link>}
+                {github && <Link src={`https://${github}`} style={styles.contactLink}>{github}</Link>}
+              </View>
             </View>
           </View>
         </View>
