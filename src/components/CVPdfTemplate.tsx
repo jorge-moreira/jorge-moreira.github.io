@@ -1,4 +1,4 @@
-import { Document, Page, View, Text, Image, StyleSheet } from '@react-pdf/renderer';
+import { Document, Page, View, Text, Image, Link, StyleSheet } from '@react-pdf/renderer';
 import type { Profile } from '@/models/Profile';
 import type { Experience } from '@/models/Experience';
 import type { Skill } from '@/models/Skill';
@@ -67,6 +67,11 @@ const styles = StyleSheet.create({
     gap: 12,
     fontSize: 9,
     color: MUTED_FG,
+  },
+  contactLink: {
+    fontSize: 9,
+    color: MUTED_FG,
+    textDecoration: 'none',
   },
 
   divider: {
@@ -243,10 +248,10 @@ export function CVPdfTemplate({ profile, experiences, skills, education, languag
             <Text style={styles.name}>{profile.name}</Text>
             <Text style={styles.jobTitle}>{profile.title}</Text>
             <View style={styles.contacts}>
-              {profile.location && <Text>{profile.location}</Text>}
-              {email && <Text>{email}</Text>}
-              {linkedin && <Text>{linkedin}</Text>}
-              {github && <Text>{github}</Text>}
+              {profile.location && <Text style={styles.contactLink}>{profile.location}</Text>}
+              {email && <Link src={`mailto:${email}`} style={styles.contactLink}>{email}</Link>}
+              {linkedin && <Link src={`https://${linkedin}`} style={styles.contactLink}>{linkedin}</Link>}
+              {github && <Link src={`https://${github}`} style={styles.contactLink}>{github}</Link>}
             </View>
           </View>
         </View>
