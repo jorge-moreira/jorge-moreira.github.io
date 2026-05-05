@@ -31,9 +31,9 @@ export default function Navbar() {
             {/* Logo */}
             <Link
               to="/"
-              className="flex items-center gap-2 text-xl font-normal hover:opacity-80 transition-opacity"
+              className="group flex items-center gap-2 text-xl font-normal hover:opacity-80 transition-opacity"
             >
-              <LogoIcon className="w-3 h-3 shrink-0 opacity-75" aria-hidden="true" />
+              <LogoIcon className="w-4 h-4 shrink-0 opacity-75 transition-colors group-hover:text-primary group-hover:opacity-100" aria-hidden="true" />
               jorge-moreira.dev
             </Link>
 
