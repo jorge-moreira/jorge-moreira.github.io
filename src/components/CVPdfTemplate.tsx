@@ -255,27 +255,53 @@ export function CVPdfTemplate({ profile, experiences, skills, education, languag
 
         {/* Professional Experience */}
         <View style={styles.section}>
-          <Text style={styles.sectionTitle}>Professional Experience</Text>
-          {experiences.map((exp) => (
-            <View key={exp.id} style={styles.expRow}>
-              <Text style={styles.expDates}>
-                {exp.startDate}{'\n'}{exp.endDate ?? 'Present'}
-              </Text>
-              <View style={styles.expBody}>
-                <Text style={styles.expCompany}>{exp.company}</Text>
-                <Text style={styles.expRole}>{exp.role}</Text>
-                {exp.description.map((item, idx) => (
-                  <Text key={idx} style={styles.bulletPoint}>• {item}</Text>
-                ))}
-                {exp.tags && exp.tags.length > 0 && (
-                  <View style={styles.tags}>
-                    {exp.tags.map((tag, idx) => (
-                      <Text key={idx} style={styles.tag}>{tag}</Text>
+          {experiences.map((exp, i) => (
+            i === 0 ? (
+              // First entry wrapped with the section title so the title is never orphaned
+              <View key={exp.id} wrap={false}>
+                <Text style={styles.sectionTitle}>Professional Experience</Text>
+                <View style={styles.expRow}>
+                  <Text style={styles.expDates}>
+                    {exp.startDate}{'\n'}{exp.endDate ?? 'Present'}
+                  </Text>
+                  <View style={styles.expBody}>
+                    <Text style={styles.expCompany}>{exp.company}</Text>
+                    <Text style={styles.expRole}>{exp.role}</Text>
+                    {exp.description.map((item, idx) => (
+                      <Text key={idx} style={styles.bulletPoint}>• {item}</Text>
                     ))}
+                    {exp.tags && exp.tags.length > 0 && (
+                      <View style={styles.tags}>
+                        {exp.tags.map((tag, idx) => (
+                          <Text key={idx} style={styles.tag}>{tag}</Text>
+                        ))}
+                      </View>
+                    )}
                   </View>
-                )}
+                </View>
               </View>
-            </View>
+            ) : (
+              // Remaining entries each stay together across page breaks
+              <View key={exp.id} style={styles.expRow} wrap={false}>
+                <Text style={styles.expDates}>
+                  {exp.startDate}{'\n'}{exp.endDate ?? 'Present'}
+                </Text>
+                <View style={styles.expBody}>
+                  <Text style={styles.expCompany}>{exp.company}</Text>
+                  <Text style={styles.expRole}>{exp.role}</Text>
+                  {exp.description.map((item, idx) => (
+                    <Text key={idx} style={styles.bulletPoint}>• {item}</Text>
+                  ))}
+                  {exp.tags && exp.tags.length > 0 && (
+                    <View style={styles.tags}>
+                      {exp.tags.map((tag, idx) => (
+                        <Text key={idx} style={styles.tag}>{tag}</Text>
+                      ))}
+                    </View>
+                  )}
+                </View>
+              </View>
+            )
           ))}
         </View>
 
