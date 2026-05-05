@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Icons } from '@/lib/icons';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/hooks/useTheme';
+import LogoIcon from '@/assets/logo-navbar.svg?react';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,14 +25,15 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 w-full backdrop-blur-md border-b border-border" style={{ backgroundColor: 'hsl(var(--color-navbar) / 0.85)' }}>
+      <nav className="sticky top-0 z-50 w-full bg-secondary/85 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
             <Link
               to="/"
-              className="text-xl font-normal hover:opacity-80 transition-opacity"
+              className="flex items-center gap-2 text-xl font-normal hover:opacity-80 transition-opacity"
             >
+              <LogoIcon className="w-3 h-3 shrink-0 opacity-75" aria-hidden="true" />
               jorge-moreira.dev
             </Link>
 
@@ -108,8 +110,7 @@ export default function Navbar() {
 
           {/* Menu panel — fixed just below the navbar */}
           <div
-            className="fixed top-16 left-0 right-0 z-50 md:hidden shadow-sm dark:shadow backdrop-blur-md"
-            style={{ backgroundColor: 'hsl(var(--color-navbar) / 0.85)' }}
+            className="fixed top-16 left-0 right-0 z-50 md:hidden shadow-sm dark:shadow backdrop-blur-md bg-secondary/85"
           >
             <div className="border-t w-full" />
             <div className="flex flex-col py-2 px-6">
