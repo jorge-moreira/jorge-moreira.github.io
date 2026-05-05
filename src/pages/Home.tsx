@@ -83,13 +83,13 @@ export default function Home() {
           <div className="flex flex-wrap gap-3">
             <Link
               to="/cv"
-              className="inline-flex items-center justify-center px-6 py-2.5 rounded-md text-base font-normal transition-colors bg-slate-900 text-white hover:bg-slate-700 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-slate-100"
+              className="inline-flex items-center justify-center px-6 py-2.5 rounded-[0.625rem] text-base font-normal transition-colors bg-primary text-primary-foreground hover:bg-primary/90"
             >
               <FontAwesomeIcon icon={Icons.File} className="!h-4 !w-4 !mr-2" /> View CV
             </Link>
             <Link
               to="/projects"
-              className="inline-flex items-center justify-center px-6 py-2.5 rounded-md text-base font-normal transition-colors bg-slate-500 text-white hover:bg-slate-400 dark:bg-slate-600 dark:hover:bg-slate-500"
+              className="inline-flex items-center justify-center px-6 py-2.5 rounded-[0.625rem] text-base font-normal transition-colors border border-primary text-primary bg-transparent hover:bg-primary/10"
             >
               <FontAwesomeIcon icon={Icons.Branch} className="!h-4 !w-4 !mr-2" />Check Projects
             </Link>
@@ -107,7 +107,7 @@ export default function Home() {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground social-icon transition-colors"
+                  className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
                   aria-label={link.platform}
                 >
                   <FontAwesomeIcon icon={iconData} className="!h-5 !w-5" />
@@ -158,7 +158,7 @@ export default function Home() {
           </div>
 
           {/* Separator */}
-          <Separator className="bg-slate-300 dark:bg-slate-600" />
+          <Separator className="bg-border" />
 
           {/* Beyond the keyboard */}
           {profile.interests && profile.interests.length > 0 && (
