@@ -138,7 +138,14 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
 
-  // Skills
+  // Skills — two column layout
+  skillsColumns: {
+    flexDirection: 'row',
+    gap: 16,
+  },
+  skillsColumn: {
+    flex: 1,
+  },
   skillsRow: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -275,16 +282,40 @@ export function CVPdfTemplate({ profile, experiences, skills, education, languag
         {/* Skills */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Skills</Text>
-          {Object.entries(groupedSkills).map(([category, skillList]) => (
-            <View key={category} style={styles.skillCategory}>
-              <Text style={styles.skillCategoryLabel}>{category}</Text>
-              <View style={styles.skillsRow}>
-                {skillList.map((name, idx) => (
-                  <Text key={idx} style={styles.skill}>{name}</Text>
-                ))}
+          {(() => {
+            const entries = Object.entries(groupedSkills);
+            const mid = Math.ceil(entries.length / 2);
+            const left = entries.slice(0, mid);
+            const right = entries.slice(mid);
+            return (
+              <View style={styles.skillsColumns}>
+                <View style={styles.skillsColumn}>
+                  {left.map(([category, skillList]) => (
+                    <View key={category} style={styles.skillCategory}>
+                      <Text style={styles.skillCategoryLabel}>{category}</Text>
+                      <View style={styles.skillsRow}>
+                        {skillList.map((name, idx) => (
+                          <Text key={idx} style={styles.skill}>{name}</Text>
+                        ))}
+                      </View>
+                    </View>
+                  ))}
+                </View>
+                <View style={styles.skillsColumn}>
+                  {right.map(([category, skillList]) => (
+                    <View key={category} style={styles.skillCategory}>
+                      <Text style={styles.skillCategoryLabel}>{category}</Text>
+                      <View style={styles.skillsRow}>
+                        {skillList.map((name, idx) => (
+                          <Text key={idx} style={styles.skill}>{name}</Text>
+                        ))}
+                      </View>
+                    </View>
+                  ))}
+                </View>
               </View>
-            </View>
-          ))}
+            );
+          })()}
         </View>
 
         {/* Education */}
