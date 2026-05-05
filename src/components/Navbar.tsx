@@ -24,7 +24,7 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="sticky top-0 z-50 w-full shadow-sm dark:shadow backdrop-blur-md" style={{ backgroundColor: 'hsl(var(--color-navbar) / 0.85)' }}>
+      <nav className="sticky top-0 z-50 w-full backdrop-blur-md border-b border-border" style={{ backgroundColor: 'hsl(var(--color-navbar) / 0.85)' }}>
         <div className="container mx-auto px-4">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
@@ -41,7 +41,7 @@ export default function Navbar() {
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`text-sm font-medium nav-link transition-colors ${isActive(link.path)
+                  className={`text-sm font-medium transition-colors hover:text-foreground ${isActive(link.path)
                     ? 'text-foreground'
                     : 'text-muted-foreground'
                     }`}
@@ -118,7 +118,7 @@ export default function Navbar() {
                   key={link.path}
                   to={link.path}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`py-4 text-base font-medium nav-link transition-colors ${isActive(link.path)
+                  className={`py-4 text-base font-medium transition-colors hover:text-foreground ${isActive(link.path)
                     ? 'text-foreground'
                     : 'text-muted-foreground'
                     }`}
