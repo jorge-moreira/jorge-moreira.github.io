@@ -5,7 +5,6 @@ interface TimelineProps {
 }
 
 interface TimelineItemProps {
-  dotColor: string;
   isLast?: boolean;
   children: ReactNode;
 }
@@ -18,12 +17,12 @@ export function Timeline({ children }: TimelineProps) {
   );
 }
 
-export function TimelineItem({ dotColor, isLast, children }: TimelineItemProps) {
+export function TimelineItem({ isLast, children }: TimelineItemProps) {
   return (
     <div className="relative pl-10">
       {/* Timeline dot aligned with job title */}
       <div className="absolute left-0 top-1.5">
-        <div className={`w-5 h-5 rounded-full shadow-lg z-10 ${dotColor}`} />
+        <div className={`w-5 h-5 rounded-full shadow-lg z-10 bg-primary`} />
       </div>
       
       {/* Connecting line to next dot (centered on dot) */}
