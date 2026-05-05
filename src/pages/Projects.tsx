@@ -56,7 +56,7 @@ export default function Projects() {
           {projects.map((project, index) => {
             const card = (
               <Card
-                className={`flex flex-col h-full transition-all duration-200 border-slate-300 dark:border-slate-600 shadow-sm group-hover:shadow-lg group-hover:-translate-y-1 ${!project.link ? "hover:shadow-lg hover:-translate-y-1" : ""}`}
+                className={`flex flex-col h-full transition-all duration-200 border-border group-hover:shadow-md group-hover:-translate-y-1 ${!project.link ? "hover:shadow-md hover:-translate-y-1" : ""}`}
               >
                 <CardHeader>
                   <div className="flex items-start justify-between gap-4">
@@ -66,7 +66,7 @@ export default function Projects() {
                     )}
                   </div>
                   {project.company && (
-                    <p className="text-base font-light dark:text-blue-200">{project.company}</p>
+                    <p className="text-base font-light text-primary">{project.company}</p>
                   )}
                 </CardHeader>
                 <CardContent className="flex-1 flex flex-col gap-4">
@@ -75,7 +75,7 @@ export default function Projects() {
                   </p>
                   <div className="flex flex-wrap gap-2 mt-auto">
                     {project.techStack.map((tech, index) => (
-                      <Badge key={index} className="text-xs font-normal border-0 !bg-slate-200 !text-slate-700 dark:!bg-slate-600 dark:!text-slate-100">
+                      <Badge key={index}>
                         {tech}
                       </Badge>
                     ))}
