@@ -24,6 +24,7 @@ const SKILL_BG = '#f5f5f5';            // --color-muted light
 const SKILL_BORDER = '#e8e8e8';
 const MUTED = '#aaaaaa';               // section titles, dates, years
 const BODY_TEXT = '#444444';           // bullet points, skill text
+const SECTION_DIVIDER = '#f0f0f0';
 
 const styles = StyleSheet.create({
   page: {
@@ -84,7 +85,9 @@ const styles = StyleSheet.create({
     textTransform: 'uppercase',
     letterSpacing: 1.5,
     color: MUTED,
-    borderBottom: `1 solid #f0f0f0`,
+    borderBottomWidth: 1,
+    borderBottomColor: SECTION_DIVIDER,
+    borderBottomStyle: 'solid',
     marginBottom: 10,
   },
 
