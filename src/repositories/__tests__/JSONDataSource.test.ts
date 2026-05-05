@@ -284,7 +284,6 @@ describe('JSONDataSource', () => {
     it('should fetch projects data from correct endpoint', async () => {
       const mockProjects: Project[] = [
         {
-          id: '1',
           title: 'Test Project',
           purpose: 'A test project',
           techStack: ['React', 'TypeScript'],
@@ -306,14 +305,12 @@ describe('JSONDataSource', () => {
     it('should return array of projects', async () => {
       const mockProjects: Project[] = [
         {
-          id: '1',
           title: 'Project A',
           purpose: 'Description A',
           techStack: ['React'],
           link: 'https://projecta.com',
         },
         {
-          id: '2',
           title: 'Project B',
           purpose: 'Description B',
           techStack: ['Node.js', 'Express'],

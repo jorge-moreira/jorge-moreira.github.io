@@ -1,6 +1,15 @@
 [
   {
-    "id": "1",
+    "title": "ai-brain-tool",
+    "purpose": "A CLI tool that turns a folder of notes, documents, and web clippings into a personal knowledge graph, then wires it into every AI tool you use. An interactive setup wizard configures MCP server entries, installs a /brain skill, and writes always-on context files for Claude Code, Cursor, Gemini CLI, GitHub Copilot CLI, and Codex. Supports multiple named brains, auto-sync via git, Obsidian vault export, and graph querying from inside any AI session.",
+    "techStack": [
+      "JavaScript",
+      "graphify"
+    ],
+    "company": null,
+    "link": "https://github.com/jorge-moreira/ai-brain-tool"
+  },
+  {
     "title": "Personal Portfolio",
     "purpose": "Modern portfolio website built as an SPA with routing, a CV page with PDF and ATS export, and a projects showcase. Designed with a clean, responsive layout and dark/light theme support.",
     "techStack": [
@@ -14,7 +23,6 @@
     "link": "https://jorge-moreira.github.io"
   },
   {
-    "id": "2",
     "title": "Payment Switch Modernisation",
     "purpose": "Contributed to the ongoing modernisation of a distributed payment switch — including transaction processing logic, risk rule processing, and service modularisation. Maintained and evolved a shared NuGet package ecosystem covering cryptography, caching, messaging, audit logging, and Windows service management used across the platform.",
     "techStack": [
@@ -28,7 +36,6 @@
     "link": null
   },
   {
-    "id": "3",
     "title": "Cloud-Native Payment Platform",
     "purpose": "Microservices-based payment portal encompassing API gateway routing, payment terminal management, a reports scheduling service with email delivery and downloadable artifacts, and an event-driven transaction processing pipeline using the Outbox Pattern. Observability delivered end-to-end via OpenTelemetry. Infrastructure managed through GitOps with ArgoCD and Helm on Kubernetes.",
     "techStack": [
@@ -45,7 +52,6 @@
     "link": null
   },
   {
-    "id": "4",
     "title": "STORM Modules",
     "purpose": "Backend services and internal web portal supporting merchant onboarding, order processing, logistics coordination, and operational KPI dashboards. Built as a modular platform with event-driven microservices handling the full order lifecycle — from placement through to fulfilment.",
     "techStack": [
@@ -61,7 +67,6 @@
     "link": null
   },
   {
-    "id": "5",
     "title": "myExpenses App",
     "purpose": "An internal mobile app for employee expense submission, paired with a web backoffice for manager approval workflows and categorised reporting. Built as a company-wide tool during a bachelor internship.",
     "techStack": [
@@ -73,7 +78,6 @@
     "link": null
   },
   {
-    "id": "6",
     "title": "Bitburner Automation Scripts",
     "purpose": "A TypeScript scripting suite for the Bitburner programming game, implementing hacking strategies, server fleet management, and resource optimisation through the game's Netscript API. Kept in sync with the latest API type definitions.",
     "techStack": [
