@@ -39,6 +39,12 @@ describe('Navbar', () => {
       expect(screen.getByText('jorge-moreira.dev')).toBeInTheDocument();
     });
 
+    it('should render the brand SVG icon', () => {
+      renderNavbar();
+      const svg = document.querySelector('a[href="/"] svg');
+      expect(svg).toBeInTheDocument();
+    });
+
     it('should render all navigation links', () => {
       renderNavbar();
       expect(screen.getAllByText('CV').length).toBeGreaterThan(0);
