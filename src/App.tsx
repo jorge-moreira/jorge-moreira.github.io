@@ -8,7 +8,6 @@ const Home = lazy(() => import('./pages/Home'));
 const CV = lazy(() => import('./pages/CV'));
 const Projects = lazy(() => import('./pages/Projects'));
 const Contact = lazy(() => import('./pages/Contact'));
-
 function App() {
   return (
     <ThemeProvider>

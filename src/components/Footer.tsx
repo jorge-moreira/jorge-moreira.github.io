@@ -14,7 +14,7 @@ export default function Footer() {
           {/* Right: Social links */}
           <div className="flex items-center gap-4">
             <a 
-              href="https://www.linkedin.com/in/jorge-moreira/" 
+              href="https://linkedin.com/in/jorge-moreira/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -23,7 +23,7 @@ export default function Footer() {
               <FontAwesomeIcon icon={Icons.Linkedin} className="!h-6 !w-6" />
             </a>
             <a 
-              href="https://github.com/Jorge-Moreira" 
+              href="https://github.com/jorge-moreira" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
