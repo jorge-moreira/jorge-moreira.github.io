@@ -53,7 +53,7 @@ export default function Projects() {
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.map((project) => {
+          {projects.map((project, index) => {
             const card = (
               <Card
                 className={`flex flex-col h-full transition-all duration-200 border-slate-300 dark:border-slate-600 shadow-sm group-hover:shadow-lg group-hover:-translate-y-1 ${!project.link ? "hover:shadow-lg hover:-translate-y-1" : ""}`}
@@ -86,7 +86,7 @@ export default function Projects() {
 
             return project.link ? (
               <a
-                key={project.id}
+                key={index}
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -96,7 +96,7 @@ export default function Projects() {
                 {card}
               </a>
             ) : (
-              <div key={project.id} className="h-full">{card}</div>
+              <div key={index} className="h-full">{card}</div>
             );
           })}
         </div>
