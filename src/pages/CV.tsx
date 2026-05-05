@@ -19,6 +19,17 @@ import { generateCVPdf } from '@/lib/generatePdf';
 import { generateAtsResume } from '@/lib/generateAtsResume';
 import { Timeline, TimelineItem } from '@/components/Timeline';
 
+// Explicit map — full class strings required for Tailwind static analysis
+const COMPANY_DOT_COLORS: Record<string, string> = {
+  'Planet':    'bg-sky-500',
+  'Farfetch':  'bg-violet-500',
+  'myPartner': 'bg-emerald-500',
+};
+
+function getCompanyDotColor(company: string): string {
+  return COMPANY_DOT_COLORS[company] ?? 'bg-primary';
+}
+
 
 export default function CV() {
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -138,7 +149,7 @@ export default function CV() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
-                className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90"
+                className="h-auto gap-2 px-6 py-2.5 text-base font-normal rounded-[0.625rem] bg-primary text-primary-foreground hover:bg-primary/90"
                 disabled={downloadingPdf || downloadingAts}
                 aria-label="Download options"
               >
@@ -197,7 +208,7 @@ export default function CV() {
               const isLast = index === experiences.length - 1;
               
               return (
-                <TimelineItem key={exp.id} isLast={isLast}>
+                <TimelineItem key={exp.id} isLast={isLast} dotColor={getCompanyDotColor(exp.company)}>
                   <div className="space-y-3">
                     {/* Role with inline year badge */}
                     <div className="flex items-center gap-3">
@@ -249,7 +260,7 @@ export default function CV() {
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {skillList.map((skillName, idx) => (
-                      <Badge key={idx} className="text-xs font-normal border-0 !bg-slate-200 !text-slate-700 dark:!bg-slate-600 dark:!text-slate-100">
+                      <Badge key={idx} className="text-[0.6875rem] font-normal">
                         {skillName}
                       </Badge>
                     ))}

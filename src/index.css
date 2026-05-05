@@ -3,50 +3,48 @@
 
 @theme {
   /* Light mode */
-  --color-background: 0 0% 100%;
-  --color-navbar: 0 0% 96%;
-  --color-foreground: 0 0% 11%;
-  --color-card: 0 0% 100%;
-  --color-card-foreground: 0 0% 11%;
-  --color-popover: 0 0% 100%;
-  --color-popover-foreground: 0 0% 11%;
-  --color-primary: 211 74% 40%;
-  --color-primary-foreground: 0 0% 100%;
-  --color-secondary: 0 0% 96%;
-  --color-secondary-foreground: 0 0% 11%;
-  --color-muted: 0 0% 96%;
-  --color-muted-foreground: 0 0% 44%;
-  --color-accent: 0 0% 91%;
-  --color-accent-foreground: 0 0% 23%;
-  --color-destructive: 0 84.2% 60.2%;
-  --color-destructive-foreground: 0 0% 100%;
-  --color-border: 0 0% 88%;
-  --color-input: 0 0% 88%;
-  --color-ring: 211 74% 40%;
+  --color-background: hsl(240 6% 97%);
+  --color-foreground: hsl(0 0% 11%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(0 0% 11%);
+  --color-popover: hsl(0 0% 100%);
+  --color-popover-foreground: hsl(0 0% 11%);
+  --color-primary: hsl(211 74% 40%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-secondary: hsl(0 0% 96%);
+  --color-secondary-foreground: hsl(0 0% 11%);
+  --color-muted: hsl(0 0% 96%);
+  --color-muted-foreground: hsl(0 0% 44%);
+  --color-accent: hsl(211 40% 90%);
+  --color-accent-foreground: hsl(211 74% 28%);
+  --color-destructive: hsl(0 84.2% 60.2%);
+  --color-destructive-foreground: hsl(0 0% 100%);
+  --color-border: hsl(0 0% 88%);
+  --color-input: hsl(0 0% 88%);
+  --color-ring: hsl(211 74% 40%);
   --radius: 0.625rem;
 }
 
 .dark {
-  --color-background: 0 0% 11%;
-  --color-navbar: 0 0% 8%;
-  --color-foreground: 0 0% 96%;
-  --color-card: 0 0% 11%;
-  --color-card-foreground: 0 0% 96%;
-  --color-popover: 0 0% 11%;
-  --color-popover-foreground: 0 0% 96%;
-  --color-primary: 207 72% 56%;
-  --color-primary-foreground: 0 0% 100%;
-  --color-secondary: 0 0% 17%;
-  --color-secondary-foreground: 0 0% 96%;
-  --color-muted: 0 0% 17%;
-  --color-muted-foreground: 0 0% 60%;
-  --color-accent: 0 0% 17%;
-  --color-accent-foreground: 0 0% 68%;
-  --color-destructive: 0 62.8% 30.6%;
-  --color-destructive-foreground: 0 0% 96%;
-  --color-border: 0 0% 17%;
-  --color-input: 0 0% 17%;
-  --color-ring: 207 72% 56%;
+  --color-background: hsl(0 0% 11%);
+  --color-foreground: hsl(0 0% 96%);
+  --color-card: hsl(0 0% 15%);
+  --color-card-foreground: hsl(0 0% 96%);
+  --color-popover: hsl(0 0% 11%);
+  --color-popover-foreground: hsl(0 0% 96%);
+  --color-primary: hsl(207 72% 56%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  --color-secondary: hsl(0 0% 13%);
+  --color-secondary-foreground: hsl(0 0% 96%);
+  --color-muted: hsl(0 0% 17%);
+  --color-muted-foreground: hsl(0 0% 60%);
+  --color-accent: hsl(211 30% 22%);
+  --color-accent-foreground: hsl(207 72% 75%);
+  --color-destructive: hsl(0 62.8% 30.6%);
+  --color-destructive-foreground: hsl(0 0% 96%);
+  --color-border: hsl(0 0% 17%);
+  --color-input: hsl(0 0% 17%);
+  --color-ring: hsl(207 72% 56%);
 }
 
 * {
@@ -62,8 +60,8 @@ body,
 }
 
 body {
-  background-color: hsl(var(--color-background));
-  color: hsl(var(--color-foreground));
+  background-color: var(--color-background);
+  color: var(--color-foreground);
 }
 
 @keyframes fadeIn {

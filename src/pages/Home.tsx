@@ -64,7 +64,7 @@ export default function Home() {
 
           {/* Name and Title */}
           <div className="space-y-3">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-normal tracking-tight">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
               {profile.name}
             </h1>
             <h2 className="text-2xl sm:text-3xl text-muted-foreground font-extralight">
@@ -83,13 +83,13 @@ export default function Home() {
           <div className="flex flex-wrap gap-3">
             <Link
               to="/cv"
-              className="inline-flex items-center justify-center px-6 py-2.5 rounded-[0.625rem] text-base font-normal transition-colors bg-primary text-primary-foreground hover:bg-primary/90"
+              className="inline-flex items-center justify-center px-6 py-2.5 rounded-[0.625rem] text-base font-normal transition-colors border border-primary text-primary bg-transparent hover:bg-primary/10"
             >
               <FontAwesomeIcon icon={Icons.File} className="!h-4 !w-4 !mr-2" /> View CV
             </Link>
             <Link
               to="/projects"
-              className="inline-flex items-center justify-center px-6 py-2.5 rounded-[0.625rem] text-base font-normal transition-colors border border-primary text-primary bg-transparent hover:bg-primary/10"
+              className="inline-flex items-center justify-center px-6 py-2.5 rounded-[0.625rem] text-base font-normal transition-colors bg-primary text-primary-foreground hover:bg-primary/90"
             >
               <FontAwesomeIcon icon={Icons.Branch} className="!h-4 !w-4 !mr-2" />Check Projects
             </Link>
