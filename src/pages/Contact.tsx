@@ -77,7 +77,7 @@ export default function Contact() {
               rel={isMailto ? undefined : 'noopener noreferrer'}
               className="block group"
             >
-              <Card className="transition-all duration-200 border-slate-300 dark:border-slate-600 shadow-sm hover:shadow-lg hover:-translate-y-1 cursor-pointer">
+              <Card className="transition-all duration-200 border-border hover:shadow-md hover:-translate-y-1 cursor-pointer">
                 <CardContent className="p-6">
                   <div className="flex items-start gap-4">
                     <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
