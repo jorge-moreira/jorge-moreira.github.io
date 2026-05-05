@@ -14,14 +14,16 @@ interface CVPdfTemplateProps {
 }
 
 // Light-mode website tokens
-const BLUE = 'hsl(211, 74%, 40%)';       // --color-primary light
-const FOREGROUND = '#1c1c1c';             // --color-foreground light
-const MUTED_FG = '#707070';              // --color-muted-foreground light
-const BORDER = '#e0e0e0';               // --color-border light
-const TAG_BG = 'hsl(211, 40%, 90%)';    // --color-accent light
-const TAG_FG = 'hsl(211, 74%, 28%)';    // --color-accent-foreground light
-const SKILL_BG = '#f5f5f5';             // --color-muted light
+const BLUE = '#1a6abf';                  // --color-primary light  (hsl(211,74%,40%))
+const FOREGROUND = '#1c1c1c';            // --color-foreground light
+const MUTED_FG = '#707070';             // --color-muted-foreground light
+const BORDER = '#e0e0e0';              // --color-border light
+const TAG_BG = '#d6e8f7';               // --color-accent light   (hsl(211,40%,90%))
+const TAG_FG = '#1a4a85';               // --color-accent-foreground light (hsl(211,74%,28%))
+const SKILL_BG = '#f5f5f5';            // --color-muted light
 const SKILL_BORDER = '#e8e8e8';
+const MUTED = '#aaaaaa';               // section titles, dates, years
+const BODY_TEXT = '#444444';           // bullet points, skill text
 
 const styles = StyleSheet.create({
   page: {
@@ -49,7 +51,7 @@ const styles = StyleSheet.create({
   },
   name: {
     fontSize: 24,
-    fontWeight: 'light',
+    fontWeight: 'normal',
     color: FOREGROUND,
     marginBottom: 3,
   },
@@ -81,9 +83,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     textTransform: 'uppercase',
     letterSpacing: 1.5,
-    color: '#aaaaaa',
+    color: MUTED,
     borderBottom: `1 solid #f0f0f0`,
-    paddingBottom: 4,
     marginBottom: 10,
   },
 
@@ -96,7 +97,7 @@ const styles = StyleSheet.create({
   expDates: {
     width: 72,
     fontSize: 8,
-    color: '#aaaaaa',
+    color: MUTED,
     paddingTop: 1,
     lineHeight: 1.5,
   },
@@ -116,7 +117,7 @@ const styles = StyleSheet.create({
   },
   bulletPoint: {
     fontSize: 9,
-    color: '#444444',
+    color: BODY_TEXT,
     marginBottom: 2,
     paddingLeft: 10,
   },
@@ -143,10 +144,22 @@ const styles = StyleSheet.create({
   skill: {
     fontSize: 8,
     backgroundColor: SKILL_BG,
-    color: '#444444',
+    color: BODY_TEXT,
     padding: '2 7',
     borderRadius: 3,
-    border: `1 solid ${SKILL_BORDER}`,
+    borderWidth: 1,
+    borderColor: SKILL_BORDER,
+    borderStyle: 'solid',
+  },
+
+  // Skills categories
+  skillCategory: {
+    marginBottom: 6,
+  },
+  skillCategoryLabel: {
+    fontSize: 8,
+    color: MUTED_FG,
+    marginBottom: 3,
   },
 
   // Education row: year left + content right
@@ -158,7 +171,7 @@ const styles = StyleSheet.create({
   eduYear: {
     width: 72,
     fontSize: 8,
-    color: '#aaaaaa',
+    color: MUTED,
     paddingTop: 1,
   },
   eduBody: {
@@ -168,6 +181,11 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontWeight: 'bold',
     color: FOREGROUND,
+    marginBottom: 1,
+  },
+  eduSubDegree: {
+    fontSize: 9,
+    color: MUTED_FG,
     marginBottom: 1,
   },
   eduInstitution: {
@@ -255,8 +273,8 @@ export function CVPdfTemplate({ profile, experiences, skills, education, languag
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>Skills</Text>
           {Object.entries(groupedSkills).map(([category, skillList]) => (
-            <View key={category} style={{ marginBottom: 6 }}>
-              <Text style={{ fontSize: 8, color: MUTED_FG, marginBottom: 3 }}>{category}</Text>
+            <View key={category} style={styles.skillCategory}>
+              <Text style={styles.skillCategoryLabel}>{category}</Text>
               <View style={styles.skillsRow}>
                 {skillList.map((name, idx) => (
                   <Text key={idx} style={styles.skill}>{name}</Text>
@@ -280,7 +298,7 @@ export function CVPdfTemplate({ profile, experiences, skills, education, languag
                   {edu.description && (
                     <Text style={styles.eduDegree}>{edu.description}</Text>
                   )}
-                  <Text style={edu.description ? { fontSize: 9, color: MUTED_FG, marginBottom: 1 } : styles.eduDegree}>
+                  <Text style={edu.description ? styles.eduSubDegree : styles.eduDegree}>
                     {edu.degree}
                   </Text>
                   <Text style={styles.eduInstitution}>{edu.institution}</Text>
@@ -291,7 +309,7 @@ export function CVPdfTemplate({ profile, experiences, skills, education, languag
         </View>
 
         {/* Languages */}
-        {languages && languages.length > 0 && (
+        {languages.length > 0 && (
           <View style={styles.section}>
             <Text style={styles.sectionTitle}>Languages</Text>
             {languages.map((lang, idx) => (
