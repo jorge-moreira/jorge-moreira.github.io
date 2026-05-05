@@ -29,11 +29,12 @@ export function TimelineItem({ isLast, dotColor = 'bg-primary', children }: Time
       {/* Connecting line to next dot (centered on dot) */}
       {!isLast && (
         <div 
-          className="absolute top-4 w-px"
+          className="absolute w-px"
           style={{ 
             backgroundColor: 'var(--color-border)',
             left: 'calc(0.4375rem - 0.5px)',
-            height: 'calc(100% + 5rem)'
+            top: 'calc(0.25rem + 0.875rem)',
+            height: 'calc(100% + 5rem - 0.25rem - 0.875rem)'
           }}
         />
       )}
