@@ -19,23 +19,6 @@ import { generateCVPdf } from '@/lib/generatePdf';
 import { generateAtsResume } from '@/lib/generateAtsResume';
 import { Timeline, TimelineItem } from '@/components/Timeline';
 
-// Color palette for company dots
-const companyColors = [
-  'bg-blue-500 shadow-blue-500/50',
-  'bg-purple-500 shadow-purple-500/50',
-  'bg-green-500 shadow-green-500/50',
-  'bg-orange-500 shadow-orange-500/50',
-  'bg-pink-500 shadow-pink-500/50',
-  'bg-cyan-500 shadow-cyan-500/50',
-  'bg-red-500 shadow-red-500/50',
-  'bg-yellow-500 shadow-yellow-500/50',
-  'bg-indigo-500 shadow-indigo-500/50',
-];
-
-const getCompanyColor = (company: string): string => {
-  const hash = company.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
-  return companyColors[hash % companyColors.length];
-};
 
 export default function CV() {
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -155,7 +138,7 @@ export default function CV() {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
-                className="gap-2 bg-slate-500 text-white hover:bg-slate-400 dark:bg-slate-600 dark:hover:bg-slate-500"
+                className="gap-2 bg-primary text-primary-foreground hover:bg-primary/90"
                 disabled={downloadingPdf || downloadingAts}
                 aria-label="Download options"
               >
@@ -179,19 +162,19 @@ export default function CV() {
             </DropdownMenuTrigger>
             <DropdownMenuContent
               align="start"
-              className="bg-slate-400 dark:bg-slate-500 border-slate-400 dark:border-slate-500 p-0 min-w-[var(--radix-dropdown-menu-trigger-width)]"
+              className="bg-secondary border-border p-0 min-w-[var(--radix-dropdown-menu-trigger-width)]"
             >
               <DropdownMenuItem
                 onClick={handleDownloadPdf}
                 disabled={downloadingPdf || downloadingAts}
-                className="text-white focus:bg-slate-500 dark:focus:bg-slate-600 cursor-pointer rounded-none pl-4"
+                className="text-foreground focus:bg-accent cursor-pointer rounded-none pl-4"
               >
                 PDF
               </DropdownMenuItem>
               <DropdownMenuItem
                 onClick={handleDownloadAts}
                 disabled={downloadingPdf || downloadingAts}
-                className="text-white focus:bg-slate-500 dark:focus:bg-slate-600 cursor-pointer rounded-none pl-4"
+                className="text-foreground focus:bg-accent cursor-pointer rounded-none pl-4"
               >
                 ATS friendly
               </DropdownMenuItem>
@@ -211,11 +194,10 @@ export default function CV() {
           <Timeline>
             {experiences.map((exp, index) => {
               const startYear = exp.startDate.split(' ').pop() || exp.startDate;
-              const dotColor = getCompanyColor(exp.company);
               const isLast = index === experiences.length - 1;
               
               return (
-                <TimelineItem key={exp.id} dotColor={dotColor} isLast={isLast}>
+                <TimelineItem key={exp.id} isLast={isLast}>
                   <div className="space-y-3">
                     {/* Role with inline year badge */}
                     <div className="flex items-center gap-3">
@@ -224,7 +206,7 @@ export default function CV() {
                     </div>
                     
                     {/* Company with primary color */}
-                    <p className="text-lg font-light dark:text-blue-200">{exp.company}</p>
+                    <p className="text-lg font-light text-primary">{exp.company}</p>
                     
                     {/* Description bullets */}
                     <ul className="space-y-2 text-sm text-muted-foreground">
@@ -240,7 +222,7 @@ export default function CV() {
                     {exp.tags && exp.tags.length > 0 && (
                       <div className="flex flex-wrap gap-2 pt-2">
                         {exp.tags.map((tag, idx) => (
-                          <Badge key={idx} className="text-xs font-normal border-0 !bg-slate-200 !text-slate-700 dark:!bg-slate-600 dark:!text-slate-100">
+                           <Badge key={idx}>
                             {tag}
                           </Badge>
                         ))}
@@ -293,7 +275,7 @@ export default function CV() {
                       <h3 className="text-lg font-medium">{edu.description}</h3>
                     )}
                     <p className="text-sm font-normal">{edu.degree}</p>
-                    <p className="text-sm font-light dark:text-blue-200">{edu.institution}</p>
+                    <p className="text-sm font-light text-primary">{edu.institution}</p>
                     <p className="text-xs font-normal text-gray-500 dark:text-gray-400">{yearDisplay}</p>
                   </div>
                 );
