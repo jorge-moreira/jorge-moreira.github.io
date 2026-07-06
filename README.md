@@ -48,7 +48,7 @@ bun run lint
 
 ## 🏗️ Project Structure
 
-```
+```plaintext
 ├── src/
 │   ├── components/      # React components
 │   │   ├── ui/         # shadcn/ui components
@@ -92,6 +92,7 @@ bun run lint
 ## 🧪 Testing
 
 The project includes a comprehensive test suite with 87 tests covering:
+
 - Data repositories (JSONDataSource)
 - PDF generation utilities
 - ATS resume generation
@@ -112,6 +113,7 @@ The site automatically deploys to [jorge-moreira.dev](https://jorge-moreira.dev)
 ## 📝 Data Management
 
 Content is managed through JSON files in `public/data/`:
+
 - `profile.json` — Personal info, bio, focus areas, social links, "What I stand for", and "Beyond the keyboard" interests
 - `experiences.json` — Work history with location, month/year dates, descriptions, and tech stack
 - `skills.json` — Technical skills grouped by category
@@ -124,6 +126,7 @@ Edit these files to update site content without touching any code.
 ## ⚠️ Important Notes
 
 **Always use Bun** — This project uses Bun exclusively:
+
 - Use `bun add` instead of `npm install`
 - Use `bunx` instead of `npx`
 - Use `bun run` instead of `npm run`
@@ -132,4 +135,3 @@ Edit these files to update site content without touching any code.
 ## 📜 License
 
 Personal portfolio — all rights reserved.
-

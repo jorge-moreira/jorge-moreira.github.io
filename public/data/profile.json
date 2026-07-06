@@ -1,20 +1,21 @@
 {
   "name": "Jorge Moreira",
-  "title": "Senior Software Engineer",
+  "title": "Software Development Manager",
   "bio": [
-    "I'm a Senior Software Engineer based in Porto with 8+ years of experience designing and building backend systems across e-commerce and fintech.",
-    "I specialise in backend engineering: distributed architectures, event-driven services, cloud infrastructure, and observability — currently contributing to a production payments platform that handles transactions across multiple markets.",
-    "Equally comfortable diving deep into a complex distributed system, leading technical discussions, driving API design standards across teams, or investing in the growth of the engineers around me."
+    "I'm a Software Development Manager in Porto, with 8+ years in backend engineering across e-commerce and fintech.",
+    "These days I lead teams building payments capabilities used across multiple markets, with a strong focus on reliability and predictable delivery.",
+    "I care about clear ownership, practical technical decisions, and helping engineers grow into people who can drive complex work independently."
   ],
   "photo": "/profile-photo.png",
   "location": "Porto, Portugal",
-  "currentRole": "Senior Software Engineer",
+  "currentRole": "Software Development Manager",
   "focusAreas": [
-    "Backend Systems",
-    "Distributed Architecture",
-    "API Design & Standards",
-    "Fintech & Payments",
-    "Engineering Mentorship"
+    "Engineering Leadership",
+    "Delivery Execution",
+    "Distributed Backend Systems",
+    "API Governance",
+    "Fintech Payments",
+    "Team Growth and Mentorship"
   ],
   "social": [
     {
@@ -36,7 +37,7 @@
   "carePriorities": [
     "Systems that are observable by default — in fintech, surprises in production are not an option",
     "API design as a shared discipline, not an afterthought bolted on after the fact",
-    "Writing code the next engineer can read, understand, and confidently evolve",
+    "Clear priorities, ownership, and trade-offs so teams move fast without sacrificing quality",
     "Bridging legacy and modern — keeping the lights on while moving forward",
     "Creating space for the engineers around me to take real ownership and grow"
   ],

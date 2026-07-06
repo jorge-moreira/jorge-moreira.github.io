@@ -2,10 +2,44 @@
   {
     "id": "1",
     "company": "Planet",
+    "role": "Software Development Manager",
+    "location": "Porto, Portugal",
+    "startDate": "Jul 2026",
+    "endDate": null,
+    "description": [
+      "Software Development Manager in a fintech environment, leading a team delivering capabilities for a cloud-native payment processing platform built on distributed microservices",
+      "Own team planning and delivery execution, aligning roadmap priorities with product and architecture stakeholders",
+      "Provide technical leadership across payment processing domains including terminal lifecycle management, transaction operations, tokenization/refund actions, and merchant hierarchy authorization",
+      "Drive engineering quality practices across services, including resilience patterns, observability standards, and operational readiness",
+      "Coach and mentor engineers through regular feedback, career development support, and collaborative technical decision-making",
+      "Support cross-team initiatives spanning event-driven payments, report scheduling, and payment switch reliability improvements",
+      "Lead continuous improvement in engineering efficiency, including tooling automation and shared platform component evolution"
+    ],
+    "tags": [
+      "Engineering Management",
+      "Technical Leadership",
+      "Delivery Management",
+      "Payments",
+      "Microservices",
+      "Platform Engineering"
+    ],
+    "techStack": [
+      "ASP.NET Core",
+      "MongoDB",
+      "Apache Kafka",
+      "OpenTelemetry",
+      "Kubernetes",
+      "Helm",
+      "ArgoCD"
+    ]
+  },
+  {
+    "id": "2",
+    "company": "Planet",
     "role": "Senior Software Engineer",
     "location": "Porto, Portugal",
     "startDate": "Jun 2023",
-    "endDate": null,
+    "endDate": "Jul 2026",
     "description": [
       "Senior Software Engineer in a fintech environment, contributing to a cloud-native payment processing platform built on a distributed microservices architecture",
       "Core contributor to payment processing services covering terminal lifecycle management, transaction operations, payment actions (tokenization, refund), merchant hierarchy authorization, and resilience policy implementation",
@@ -35,7 +69,7 @@
     ]
   },
   {
-    "id": "2",
+    "id": "3",
     "company": "Farfetch",
     "role": "Software Engineer",
     "location": "Porto, Portugal",
@@ -75,7 +109,7 @@
     ]
   },
   {
-    "id": "3",
+    "id": "4",
     "company": "Farfetch",
     "role": "Junior Software Engineer",
     "location": "Porto, Portugal",
@@ -102,7 +136,7 @@
     ]
   },
   {
-    "id": "4",
+    "id": "5",
     "company": "Farfetch",
     "role": "Software Engineer Trainee",
     "location": "Porto, Portugal",
@@ -124,7 +158,7 @@
     ]
   },
   {
-    "id": "5",
+    "id": "6",
     "company": "myPartner",
     "role": "Internship",
     "location": "Porto, Portugal",
